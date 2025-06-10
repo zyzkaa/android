@@ -1,0 +1,18 @@
+<resources>
+    <string name="start_button_meals">Posiłki</string>
+    <string name="start_button_gym">Treningi</string>
+
+    <string name="muscles_abdominals">Brzuch</string>
+    <string name="muscles_lower_back">Dolne plecy</string>
+    <string name="muscles_shoulders">Barki</string>
+    <string name="muscles_chest">Klatka piersiowa</string>
+    <string name="muscles_lats">Plecy</string>
+    <string name="muscles_traps">Czworoboczne</string>
+    <string name="muscles_glutes">Pośladki</string>
+    <string name="muscles_quads">Czworogłowe uda</string>
+    <string name="muscles_hamstrings">Dwugłowe uda</string>
+    <string name="muscles_calves">Łydki</string>
+    <string name="muscles_biceps">Bicepsy</string>
+    <string name="muscles_triceps">Tricepsy</string>
+
+</resources>
