@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -53,6 +54,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation (libs.localbroadcastmanager)
+    implementation ("androidx.core:core-ktx:1.10.1")
+
 
     val room_version = "2.7.1"
     implementation("androidx.room:room-runtime:$room_version")

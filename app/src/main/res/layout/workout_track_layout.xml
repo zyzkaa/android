@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar2"
@@ -17,13 +18,12 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentView"
-        android:layout_width="407dp"
-        android:layout_height="666dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar2">
-
     </androidx.fragment.app.FragmentContainerView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

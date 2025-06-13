@@ -52,7 +52,7 @@
             android:theme="@style/Theme.Am_projekt"
             android:exported="true" />
         <activity
-            android:name=".fragment.WorkoutTrackFragment"
+            android:name=".activity.WorkoutTrackActivity"
             android:theme="@style/Theme.Am_projekt"
             android:exported="true" />
         <service
@@ -66,6 +66,7 @@
                 <action android:name="WORKOUT_TIMER_UPDATE"/>
             </intent-filter>
         </receiver>
+
 
 
 

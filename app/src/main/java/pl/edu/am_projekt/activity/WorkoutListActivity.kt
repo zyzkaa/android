@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import pl.edu.am_projekt.WorkoutAdapter
 import pl.edu.am_projekt.fragment.WorkoutTrackFragment
+import pl.edu.am_projekt.activity.WorkoutTrackActivity
 import pl.edu.am_projekt.databinding.WorkoutListLayoutBinding
 import pl.edu.am_projekt.model.workout.WorkoutShortResponse
 import pl.edu.am_projekt.network.ApiService
@@ -32,10 +33,14 @@ class WorkoutListActivity : AppCompatActivity() {
         supportActionBar?.title = ""
 
         binding.newWorkout.setOnClickListener{
-            val intent = Intent(this@WorkoutListActivity, WorkoutTrackFragment::class.java)
+            val intent = Intent(this@WorkoutListActivity, WorkoutTrackActivity::class.java)
             startActivity(intent)
         }
 
+        getWorkouts()
+    }
+
+    private fun getWorkouts(){
         val call = apiService.getTrainings(1, 10)
         call.enqueue(object: Callback<List<WorkoutShortResponse>> {
             override fun onResponse(

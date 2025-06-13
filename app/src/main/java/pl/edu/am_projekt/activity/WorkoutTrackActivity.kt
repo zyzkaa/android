@@ -14,11 +14,15 @@ class WorkoutTrackActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = WorkoutTrackLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.materialToolbar2)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = ""
 
         val fragment = WorkoutTrackFragment()
-
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentView, fragment) // R.id.fragment_container to np. FrameLayout
+            .replace(R.id.fragmentView, fragment)
             .addToBackStack(null)
             .commit()
     }

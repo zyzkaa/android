@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp">
+
+    <EditText
+        android:id="@+id/inputLeft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nazwa"/>
+
+    <EditText
+        android:id="@+id/inputRight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Opis"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
