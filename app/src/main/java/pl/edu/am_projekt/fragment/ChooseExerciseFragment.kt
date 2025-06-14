@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.launch
@@ -20,7 +19,7 @@ import pl.edu.am_projekt.ExerciseAdapter
 import pl.edu.am_projekt.R
 import pl.edu.am_projekt.databinding.ChooseExerciseFragmentBinding
 import pl.edu.am_projekt.model.BasicDictResponse
-import pl.edu.am_projekt.model.workout.StrengthExerciseInfoResponse
+import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
 import pl.edu.am_projekt.room.Exercise

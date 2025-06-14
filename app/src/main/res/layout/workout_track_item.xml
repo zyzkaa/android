@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="12dp">
 
-    <!-- Tytuł + Usuń -->
+    <!-- Tytuł -->
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
@@ -14,28 +14,49 @@
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
+    <!-- DWA NAGŁÓWKI OBOK SIEBIE -->
+    <LinearLayout
+        android:id="@+id/headersRow"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Usuń"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/title"
-        />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/nameLeft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nazwa"
+            android:gravity="start"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nameRight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Opis"
+            android:gravity="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
 
     <!-- RecyclerView na boxy -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/inputRecycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/headersRow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="0dp"/>
 
     <!-- Dodaj box -->
     <Button

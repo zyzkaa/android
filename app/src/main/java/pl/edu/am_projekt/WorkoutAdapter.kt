@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pl.edu.am_projekt.activity.WorkoutViewActivity
-import pl.edu.am_projekt.model.workout.WorkoutShortResponse
+import pl.edu.am_projekt.model.workout.response.WorkoutShortResponse
 
-class WorkoutAdapter(private val workouts: List<WorkoutShortResponse>) :
+class WorkoutAdapter(private val workouts: MutableList<WorkoutShortResponse>) :
     RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>(){
 
     class WorkoutViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -37,4 +37,16 @@ class WorkoutAdapter(private val workouts: List<WorkoutShortResponse>) :
     }
 
     override fun getItemCount(): Int = workouts.size
+
+    fun removeData(position: Int): Int{
+        val workout = workouts.removeAt(position)
+        notifyItemRemoved(position)
+        return workout.id
+    }
+
+    fun setWorkouts(newWorkouts: MutableList<WorkoutShortResponse>){
+        workouts.clear()
+        workouts.addAll(newWorkouts)
+        notifyDataSetChanged()
+    }
 }

@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import pl.edu.am_projekt.model.workout.CardioExerciseResponse
-import pl.edu.am_projekt.model.workout.ExerciseResponse
-import pl.edu.am_projekt.model.workout.StrengthExerciseReponse
+import pl.edu.am_projekt.model.workout.response.CardioExerciseResponse
+import pl.edu.am_projekt.model.workout.response.ExerciseResponse
+import pl.edu.am_projekt.model.workout.response.StrengthExerciseReponse
 
 class ExerciseViewAdapter(private val exercises: List<ExerciseResponse>, private val context: Context) : RecyclerView.Adapter<ExerciseViewAdapter.ExerciseViewHolder>(){
 

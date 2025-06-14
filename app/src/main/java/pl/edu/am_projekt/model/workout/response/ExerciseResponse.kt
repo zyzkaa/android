@@ -1,4 +1,4 @@
-package pl.edu.am_projekt.model.workout
+package pl.edu.am_projekt.model.workout.response
 
 open class ExerciseResponse{
 

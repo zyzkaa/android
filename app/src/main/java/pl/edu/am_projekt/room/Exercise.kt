@@ -1,12 +1,10 @@
 package pl.edu.am_projekt.room
 
-import android.content.ContentProvider
 import android.content.Context
 import android.os.Parcelable
-import androidx.core.content.ContentProviderCompat.requireContext
 import kotlinx.parcelize.Parcelize
 import pl.edu.am_projekt.model.BasicDictResponse
-import pl.edu.am_projekt.model.workout.StrengthExerciseInfoResponse
+import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 
 @Parcelize
 data class Exercise(
