@@ -2,6 +2,13 @@
     <string name="weekly_reminder_title">New week</string>
     <string name="weekly_reminder_body">Remember to log your trainings and meals</string>
 
+<!--    <string name="register_text">Zarejestruj się</string>-->
+<!--    <string name="weight_placeholder">Waga (kg)</string>-->
+<!--    <string name="height_placeholder">Wzrost (cm)</string>-->
+<!--    <string name="birthdate_placeholder">Wiek</string>-->
+    <string name="deficit_placeholder">Deficyt kaloryczny (kcal)</string>
+
+
     <string name="app_name">ShredBook</string>
     <string name="start_button_meals">Mealplan</string>
     <string name="start_button_gym">Trainings</string>

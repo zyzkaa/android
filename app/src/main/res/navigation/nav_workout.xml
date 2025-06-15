@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_workout"
+    app:startDestination="@id/WorkoutListFragment">
+
+    <fragment
+        android:id="@+id/ChooseExerciseFragment"
+        android:name="pl.edu.am_projekt.fragment.workout.ChooseExerciseFragment"
+        android:label="Logowanie">
+
+        <argument
+            android:name="exerciseType"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/WorkoutViewFragment"
+        android:name="pl.edu.am_projekt.fragment.workout.WorkoutViewFragment"
+        android:label="Logowanie">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/WorkoutListFragment"
+        android:name="pl.edu.am_projekt.fragment.workout.WorkoutListFragment"
+        android:label="Logowanie">
+
+        <action
+            android:id="@+id/action_workoutList_to_workoutView"
+            app:destination="@id/WorkoutViewFragment" />
+
+        <action
+            android:id="@+id/action_workoutList_to_workoutTrack"
+            app:destination="@id/WorkoutTrackFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/WorkoutTrackFragment"
+        android:name="pl.edu.am_projekt.fragment.workout.WorkoutTrackFragment"
+        android:label="Logowanie">
+
+        <action
+            android:id="@+id/action_workoutTrack_to_workoutView"
+            app:destination="@id/WorkoutViewFragment"
+            app:popUpTo="@id/WorkoutTrackFragment"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/action_workoutTrack_to_chooseExercise"
+            app:destination="@id/ChooseExerciseFragment" />
+
+
+    </fragment>
+</navigation>

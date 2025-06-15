@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/authMenuFragment">
+
+    <fragment
+        android:id="@+id/authMenuFragment"
+        android:name="pl.edu.am_projekt.fragment.auth.AuthMenuFragment"
+        android:label="Menu logowania">
+
+        <action
+            android:id="@+id/action_authMenu_to_login"
+            app:destination="@id/loginFragment" />
+
+        <action
+            android:id="@+id/action_authMenu_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="pl.edu.am_projekt.fragment.auth.LoginFragment"
+        android:label="Logowanie" />
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="pl.edu.am_projekt.fragment.auth.RegisterFragment"
+        android:label="Rejestracja" />
+
+
+
+</navigation>
