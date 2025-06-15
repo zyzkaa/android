@@ -1,4 +1,7 @@
 <resources>
+    <string name="weekly_reminder_title">New week</string>
+    <string name="weekly_reminder_body">Remember to log your trainings and meals</string>
+
     <string name="app_name">ShredBook</string>
     <string name="start_button_meals">Mealplan</string>
     <string name="start_button_gym">Trainings</string>
