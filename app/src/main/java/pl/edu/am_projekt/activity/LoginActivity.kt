@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if(response.isSuccessful){
+                        Toast.makeText(this@LoginActivity,"YEAH UDALO SIE",Toast.LENGTH_LONG).show()
                         val intent = Intent(this@LoginActivity, StartActivity::class.java)
                         startActivity(intent)
                     } else {

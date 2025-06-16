@@ -1,16 +1,23 @@
 package pl.edu.am_projekt.network
 
+import MealResponseDAO
+import okhttp3.MultipartBody
 import pl.edu.am_projekt.model.BasicDictResponse
+import pl.edu.am_projekt.model.ImageUploadResponse
 import pl.edu.am_projekt.model.RegisterRequest
-import pl.edu.am_projekt.model.workout.CardioExerciseResponse
 import pl.edu.am_projekt.model.workout.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.model.workout.WorkoutDetailsResponse
 import pl.edu.am_projekt.model.workout.WorkoutShortResponse
 import retrofit2.Call
+import retrofit2.http.Part
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.Path
+import retrofit2.http.Query
+import java.io.File
 
 interface ApiService {
     @POST("user/register")
@@ -48,4 +55,24 @@ interface ApiService {
 
     @GET("exercise/strength/latest")
     suspend fun getRecentStrengthExercises() : List<StrengthExerciseInfoResponse>
+
+
+
+
+    // Meals
+    @GET("meal/get_all")
+    suspend fun getAllMeals() : List<MealResponseDAO>
+
+    @GET("meal/get_recent")
+    suspend fun getRecentMeals(@Query("count") count: Int) : List<MealResponseDAO>
+
+    @GET("meal/getMy")
+    suspend fun getMyMeals() : List<MealResponseDAO>
+
+    @Multipart
+    @POST("api/image/upload")
+    suspend fun uploadImage(
+        @Part image: MultipartBody.Part
+    ): Response<ImageUploadResponse>
+
 }

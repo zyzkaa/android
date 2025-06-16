@@ -35,7 +35,7 @@
         app:layout_constraintGuide_percent="0.55" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/meal_plans_button"
         android:layout_width="220dp"
         android:layout_height="77dp"
         android:text="@string/start_button_meals"

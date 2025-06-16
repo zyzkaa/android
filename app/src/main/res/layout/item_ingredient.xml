@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="16dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Ingredient Name"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/supportText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50 g"
+        android:textColor="?android:textColorSecondary"
+        android:textSize="14sp" />
+</LinearLayout>

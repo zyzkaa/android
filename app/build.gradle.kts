@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -54,7 +54,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation (libs.localbroadcastmanager)
-    implementation ("androidx.core:core-ktx:1.10.1")
+    implementation ("androidx.core:core-ktx:1.16.0")
+
 
 
     val room_version = "2.7.1"
@@ -78,4 +79,6 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$room_version")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

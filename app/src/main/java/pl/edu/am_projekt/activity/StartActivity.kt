@@ -2,7 +2,9 @@ package pl.edu.am_projekt.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import pl.edu.am_projekt.activity.LoginActivity
 import pl.edu.am_projekt.databinding.StartLayoutBinding
 
 class StartActivity : AppCompatActivity() {
@@ -18,6 +20,11 @@ class StartActivity : AppCompatActivity() {
         binding.trainingsButton.setOnClickListener{
             val intent = Intent(this@StartActivity, WorkoutListActivity::class.java)
             startActivity(intent)
+        }
+        binding.mealPlansButton.setOnClickListener{
+            val intent = Intent(this@StartActivity, MealsStartActivity::class.java)
+            startActivity(intent)
+
         }
     }
 }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mealDetailsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/mealImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Meal name + calories -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="1"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:id="@+id/mealNameTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="Meal Name"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+     />
+
+                <TextView
+                    android:id="@+id/caloriesTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="450 kcal"
+                    android:gravity="end"
+                    android:textSize="16sp"
+                    android:textColor="?android:textColorSecondary" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/descriptionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opis"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <TextView
+                android:id="@+id/mealDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="opis"
+                android:textSize="16sp"
+                android:textColor="?android:textColorPrimary"
+                android:paddingBottom="12dp"               />
+
+            <TextView
+                android:id="@+id/nutritionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wartości odżywcze"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:layout_marginTop="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nutritionRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="12dp"
+                android:contentDescription="Wartości odżywcze" />
+
+
+            <TextView
+                android:id="@+id/ingredientsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Składniki"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:paddingTop="8dp"
+                android:layout_marginTop="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredientsRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:clipToPadding="false"
+                android:contentDescription="Składaniki"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
