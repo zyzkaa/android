@@ -1,6 +1,5 @@
 package pl.edu.am_projekt.ui
 
-import MealResponseDAO
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +7,9 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import pl.edu.am_projekt.R
-import pl.edu.am_projekt.adapter.MealCardAdapter
 import pl.edu.am_projekt.adapter.MealSummaryAdapter
 import pl.edu.am_projekt.databinding.FragmentSelectedMealsBottomsheetBinding
-import pl.edu.am_projekt.fragment.MealPlanFragment
+import pl.edu.am_projekt.fragment.meal.MealPlanFragment
 import pl.edu.am_projekt.manager.SelectedMealsManager
 import pl.edu.am_projekt.model.MealSummary
 

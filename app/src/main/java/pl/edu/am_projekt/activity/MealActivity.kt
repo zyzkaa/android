@@ -1,17 +1,13 @@
 package pl.edu.am_projekt.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.badge.ExperimentalBadgeUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import pl.edu.am_projekt.R
-import pl.edu.am_projekt.fragment.BrowseMealsFragment
+import pl.edu.am_projekt.fragment.meal.BrowseMealsFragment
 import pl.edu.am_projekt.manager.SelectedMealsManager
 import pl.edu.am_projekt.ui.SelectedMealsBottomSheet
 import java.util.Locale

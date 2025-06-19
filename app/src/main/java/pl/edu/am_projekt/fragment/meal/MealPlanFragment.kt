@@ -1,4 +1,4 @@
-package pl.edu.am_projekt.fragment
+package pl.edu.am_projekt.fragment.meal
 
 import android.os.Bundle
 import android.util.Log
@@ -9,21 +9,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.adapter.MealSummaryAdapter
 import pl.edu.am_projekt.databinding.FragmentMealPlanBinding
 import pl.edu.am_projekt.manager.SelectedMealsManager
 import pl.edu.am_projekt.model.CreateMealPlanDto
-import pl.edu.am_projekt.model.MealSummary
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.Date
-import java.util.Locale
-import kotlin.time.Duration.Companion.days
 
 class MealPlanFragment : Fragment() {
 

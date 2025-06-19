@@ -1,7 +1,6 @@
-package pl.edu.am_projekt.fragment
+package pl.edu.am_projekt.fragment.meal
 
 import MealResponseDAO
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater

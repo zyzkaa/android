@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.activity.MealActivity
 import pl.edu.am_projekt.activity.WorkoutActivity
 import pl.edu.am_projekt.databinding.MainMenuFragmentBinding
 
@@ -29,6 +30,10 @@ class MainMenuFragment : Fragment(){
 
         binding.trainingsButton.setOnClickListener{
             val intent = Intent(requireContext(), WorkoutActivity::class.java)
+            startActivity(intent)
+        }
+        binding.mealPlansButton.setOnClickListener{
+            val intent = Intent(requireContext(), MealActivity::class.java)
             startActivity(intent)
         }
 

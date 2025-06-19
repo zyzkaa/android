@@ -1,4 +1,4 @@
-package pl.edu.am_projekt.fragment
+package pl.edu.am_projekt.fragment.meal
 
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.R
 import pl.edu.am_projekt.adapter.IngredientAdapter

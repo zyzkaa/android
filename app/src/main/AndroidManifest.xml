@@ -38,6 +38,12 @@
             android:theme="@style/Theme.Am_projekt"
             android:exported="true" />
         <activity
+            android:name=".activity.MealActivity"
+            android:theme="@style/Theme.Am_projekt"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true" />
+
+        <activity
             android:name=".activity.WorkoutTrackActivity"
             android:theme="@style/Theme.Am_projekt"
             android:exported="true" />
