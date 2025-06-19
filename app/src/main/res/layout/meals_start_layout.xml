@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flexbox="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Section 1 -->
+        <TextView
+            android:id="@+id/section1Title"
+            android:text="Wszystkie"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/section1Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:contentDescription="Lista wszytskich posiłków" />
+
+
+        <!-- Section 2 -->
+        <TextView
+            android:id="@+id/section2Title"
+            android:text="Ostatnio dodane"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/section2Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:contentDescription="Lista posiłków Ostatnio dodanych" />
+
+
+        <!-- Section 3 -->
+        <TextView
+            android:id="@+id/section3Title"
+            android:text="Twoje"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/section3Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:contentDescription="Lista posiłków utworzonych przez Ciebie" />
+
+        <TextView
+            android:id="@+id/section4Title"
+            android:text="Edytowane przez Ciebie"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/section4Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:contentDescription="Lista posiłków przez Ciebie edytowanych" />
+
+    </LinearLayout>
+</ScrollView>
