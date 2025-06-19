@@ -1,12 +1,66 @@
 <resources>
-    <string name="start_button_meals">Posiłki</string>
-    <string name="start_button_gym">Treningi</string>
+    <string name="toolbar_settings_title">Ustawienia</string>
+    <string name="search_hint">Szukaj ćwiczeń…</string>
+    <string name="search_button">Szukaj</string>
+    <string name="exercise_name_placeholder">Nazwa ćwiczenia</string>
+    <string name="exercise_muscle_placeholder">Docelowe mięśnie</string>
+    <string name="add_workout">Dodaj trening</string>
+    <string name="workout_name_hint">Nazwa treningu</string>
+    <string name="save_button">Zapisz</string>
+    <string name="add_strength_button">Dodaj siłowe</string>
+    <string name="add_cardio_button">Dodaj cardio</string>
+    <string name="input_name_hint">Nazwa</string>
+    <string name="input_description_hint">Opis</string>
+    <string name="delete_button">Usuń</string>
+    <string name="header_title">Duży nagłówek</string>
+    <string name="label_name">Nazwa</string>
+    <string name="label_description">Opis</string>
+    <string name="add_button">Dodaj</string>
+    <string name="label_speed">Prędkość</string>
+    <string name="label_minutes">Minuty</string>
+    <string name="label_weight">Ciężar</string>
+    <string name="label_reps">Powtórzenia</string>
 
-    <string name="muscles_abdominals">Brzuch</string>
+    <string name="weekly_reminder_title">Nowy tydzień</string>
+    <string name="weekly_reminder_body">Nie zapomnij zapisać treningów i posiłków</string>
+
+    <string name="app_name">ShredBook</string>
+    <string name="start_button_meals">Plan posiłków</string>
+    <string name="start_button_gym">Treningi</string>
+    <string name="start_text">Nazwa aplikacji</string>
+    <string name="settings_button_text">Ustawienia</string>
+    <string name="age_placeholder">Wiek</string>
+
+    <string name="logout">Wyloguj się</string>
+    <string name="logout_summary">Wyloguj się ze swojego konta</string>
+
+
+    <string name="login_text">Zaloguj się</string>
+    <string name="login_email_placeholder">Nazwa użytkownika</string>
+    <string name="login_password_placeholder">Hasło</string>
+    <string name="register_text">Zarejestruj się</string>
+    <string name="height_placeholder">Wzrost</string>
+    <string name="weight_placeholder">Waga</string>
+    <string name="birthdate_placeholder">Data urodzenia</string>
+    <string name="deficit_placeholder">Deficyt kaloryczny (kcal)</string>
+
+    <string name="auth_start_text">Nazwa aplikacji</string>
+    <string name="auth_start_login_button">Zaloguj się</string>
+    <string name="auth_start_register_button">Zarejestruj się</string>
+
+    <string name="confirm_button">Potwierdź</string>
+
+    <string name="action_settings">Ustawienia</string>
+    <string name="first_fragment_label">Pierwszy ekran</string>
+    <string name="second_fragment_label">Drugi ekran</string>
+    <string name="next">Dalej</string>
+    <string name="previous">Wstecz</string>
+
+    <string name="muscles_abdominals">Mięśnie brzucha</string>
     <string name="muscles_lower_back">Dolne plecy</string>
     <string name="muscles_shoulders">Barki</string>
     <string name="muscles_chest">Klatka piersiowa</string>
-    <string name="muscles_lats">Plecy</string>
+    <string name="muscles_lats">Mięśnie grzbietu</string>
     <string name="muscles_traps">Czworoboczne</string>
     <string name="muscles_glutes">Pośladki</string>
     <string name="muscles_quads">Czworogłowe uda</string>
@@ -15,4 +69,55 @@
     <string name="muscles_biceps">Bicepsy</string>
     <string name="muscles_triceps">Tricepsy</string>
 
+    <string name="pref_title_theme">Motyw</string>
+    <string name="pref_title_language">Język</string>
+    <string name="pref_category_schedule">Harmonogram powiadomień</string>
+    <string name="pref_title_time">Godzina powiadomienia</string>
+    <string name="pref_title_days">Dni tygodnia</string>
+
+    <string-array name="pref_theme_entries">
+        <item>Jasny</item>
+        <item>Ciemny</item>
+        <item>Systemowy</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>system</item>
+    </string-array>
+
+    <string-array name="pref_language_entries">
+        <item>Polski</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <item>pl</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="pref_days_entries">
+        <item>Poniedziałek</item>
+        <item>Wtorek</item>
+        <item>Środa</item>
+        <item>Czwartek</item>
+        <item>Piątek</item>
+        <item>Sobota</item>
+        <item>Niedziela</item>
+    </string-array>
+    <string-array name="pref_days_values">
+        <item>mon</item>
+        <item>tue</item>
+        <item>wed</item>
+        <item>thu</item>
+        <item>fri</item>
+        <item>sat</item>
+        <item>sun</item>
+    </string-array>
+    <string-array name="pref_days_default">
+        <item>mon</item>
+        <item>tue</item>
+        <item>wed</item>
+        <item>thu</item>
+        <item>fri</item>
+    </string-array>
 </resources>

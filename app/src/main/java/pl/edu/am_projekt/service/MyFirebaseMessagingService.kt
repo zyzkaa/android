@@ -5,8 +5,14 @@ import android.app.NotificationManager
 import android.content.Context
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import pl.edu.am_projekt.network.ApiService
+import pl.edu.am_projekt.network.RetrofitClient
 
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
@@ -21,14 +27,28 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d("FCM", "Odebrano wiadomość")
 
-        val title = remoteMessage.notification?.title ?: "Brak tytułu"
-        val body = remoteMessage.notification?.body ?: "Brak treści"
+        val allowedKeys = setOf(
+            "weekly_reminder_title",
+            "weekly_reminder_body",
+            "workout_reminder_title",
+            "workout_reminder_body"
+        )
+
+        val titleKey = remoteMessage.notification?.title.orEmpty()
+        val bodyKey = remoteMessage.notification?.body.orEmpty()
+
+        val title = if (titleKey in allowedKeys) getStringByName(titleKey) else "Brak tytułu"
+        val body = if (bodyKey in allowedKeys) getStringByName(bodyKey) else "Brak treści"
 
         Log.d("FCM", "Tytuł: $title, Treść: $body")
 
         showNotification(title, body)
     }
 
+    private fun getStringByName(name: String): String {
+        val resId = applicationContext.resources.getIdentifier(name, "string", applicationContext.packageName)
+        return if (resId != 0) applicationContext.getString(resId) else name
+    }
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)

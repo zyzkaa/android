@@ -25,7 +25,7 @@
         android:id="@+id/new_workout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Dodaj trening"
+        android:contentDescription="@string/add_workout"
         android:src="@android:drawable/ic_menu_add"
         app:backgroundTint="?attr/colorPrimaryVariant"
         app:tint="@android:color/white"

@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.recyclerview.widget.RecyclerView
-import pl.edu.am_projekt.model.InputData
 import androidx.core.widget.doAfterTextChanged
+import androidx.recyclerview.widget.RecyclerView
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.model.InputData
 
 class WorkoutTrackInputAdapter (
     private val boxes: MutableList<InputData>,

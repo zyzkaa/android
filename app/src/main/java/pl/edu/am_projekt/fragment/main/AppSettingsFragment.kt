@@ -1,30 +1,117 @@
 package pl.edu.am_projekt.fragment.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.lifecycleScope
+import androidx.preference.ListPreference
+import androidx.preference.MultiSelectListPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
+import kotlinx.coroutines.launch
+import pl.edu.am_projekt.LanguageManager
 import pl.edu.am_projekt.R
-import pl.edu.am_projekt.databinding.AppSettingsFragmentBinding
-import pl.edu.am_projekt.databinding.MainMenuFragmentBinding
+import pl.edu.am_projekt.ThemeManager
+import pl.edu.am_projekt.TimePickerPreference
+import pl.edu.am_projekt.TimePreferenceDialogFragment
+import pl.edu.am_projekt.activity.AuthActivity
+import pl.edu.am_projekt.activity.MainActivity
+import pl.edu.am_projekt.model.workout.request.RemindersRequest
+import pl.edu.am_projekt.network.ApiService
+import pl.edu.am_projekt.network.RetrofitClient
 
-class AppSettingsFragment : Fragment() {
+class AppSettingsFragment : PreferenceFragmentCompat()  {
+    private val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
 
-    private var _binding: AppSettingsFragmentBinding? = null
-    private val binding get() = _binding!!
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.app_settings_fragment, rootKey)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = AppSettingsFragmentBinding.inflate(inflater, container, false)
-        return binding.root
+        val themePref = findPreference<ListPreference>("pref_theme")
+        themePref?.setOnPreferenceChangeListener { _, newValue ->
+            ThemeManager.updateTheme(newValue as String)
+            true
+        }
+
+        val languagePref = findPreference<ListPreference>("pref_language")
+        languagePref?.setOnPreferenceChangeListener { _, newValue ->
+            LanguageManager.updateLanguage(requireContext(), newValue as String)
+            requireActivity().recreate()
+            true
+        }
+
+        val timePref = findPreference<TimePickerPreference>("pref_schedule_time")
+        timePref?.setOnPreferenceChangeListener { _, newValue ->
+            saveScheduleToApi(newValue as String, getSelectedDays())
+            true
+        }
+
+        val daysPref = findPreference<MultiSelectListPreference>("pref_schedule_days")
+        daysPref?.setOnPreferenceChangeListener { _, newValue ->
+            saveScheduleToApi(getSelectedTime(), (newValue as Set<*>).map { it.toString() })
+            true
+        }
+
+        val logoutPref = findPreference<Preference>("logout_button")
+        logoutPref?.setOnPreferenceClickListener {
+            lifecycleScope.launch {
+                apiService.logout()
+                val intent = Intent(requireContext(), AuthActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+            }
+            true
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
+    private fun getSelectedTime(): String {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        return prefs.getString("pref_schedule_time", "08:00") ?: "08:00"
     }
+
+    private fun getSelectedDays(): List<String> {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        return prefs.getStringSet("pref_schedule_days", setOf())?.toList() ?: listOf()
+    }
+
+    private fun saveScheduleToApi(time: String, days: List<String>) {
+        val request = RemindersRequest(
+            time = time,
+            days = days.mapNotNull { dayCodeToInt(it) }
+        )
+
+        lifecycleScope.launch {
+            try {
+                apiService.addReminders(request)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun dayCodeToInt(code: String): Int? = when (code.lowercase()) {
+        "mon" -> 1
+        "tue" -> 2
+        "wed" -> 3
+        "thu" -> 4
+        "fri" -> 5
+        "sat" -> 6
+        "sun" -> 7
+        else -> null
+    }
+
+    override fun onDisplayPreferenceDialog(preference: Preference) {
+        if (preference is TimePickerPreference) {
+            val dialog = TimePreferenceDialogFragment()
+            dialog.setTargetFragment(this, 0)
+            dialog.arguments = Bundle().apply {
+                putString("key", preference.key)
+            }
+            dialog.show(parentFragmentManager, null)
+        } else {
+            super.onDisplayPreferenceDialog(preference)
+        }
+    }
+
+
 }

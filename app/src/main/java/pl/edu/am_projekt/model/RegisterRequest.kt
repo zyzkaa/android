@@ -5,5 +5,6 @@ data class RegisterRequest(
     val password: String,
     val weight: Int,
     val height: Int,
-    val age: Int
+    val age: Int,
+    val calories: Int
 )

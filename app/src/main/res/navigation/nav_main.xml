@@ -20,16 +20,6 @@
         android:name="pl.edu.am_projekt.fragment.main.AppSettingsFragment"
         android:label="Logowanie">
 
-        <action
-            android:id="@+id/action_appSettings_to_userSettings"
-            app:destination="@id/userSettingsFragment" />
-
     </fragment>
-
-
-    <fragment
-            android:id="@+id/userSettingsFragment"
-            android:name="pl.edu.am_projekt.fragment.main.UserSettingsFragment"
-            android:label="Rejestracja" />
 
 </navigation>

@@ -1,16 +1,16 @@
 package pl.edu.am_projekt.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.util.Log
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import pl.edu.am_projekt.R
 import pl.edu.am_projekt.model.ExerciseWithTrackData
 import pl.edu.am_projekt.model.InputData
-import pl.edu.am_projekt.R
 
 class WorkoutTrackAdapter(private var exercises: MutableList<ExerciseWithTrackData>)
     : RecyclerView.Adapter<WorkoutTrackAdapter.WorkoutTrackHolder>(){
@@ -30,13 +30,16 @@ class WorkoutTrackAdapter(private var exercises: MutableList<ExerciseWithTrackDa
         val exerciseData = exercises[position]
         holder.title.text = exerciseData.exercise.name
 
-        if(exerciseData.exercise.muscles == null){
-            holder.nameLeft.text = "predkosc"
-            holder.nameRight.text = "minuty"
+        val context = holder.itemView.context
+
+        if (exerciseData.exercise.muscles == null) {
+            holder.nameLeft.text = context.getString(R.string.label_speed)
+            holder.nameRight.text = context.getString(R.string.label_minutes)
         } else {
-            holder.nameLeft.text = "wieght"
-            holder.nameRight.text = "reps"
+            holder.nameLeft.text = context.getString(R.string.label_weight)
+            holder.nameRight.text = context.getString(R.string.label_reps)
         }
+
 
         val inputAdapter = WorkoutTrackInputAdapter(mutableListOf()) { position ->
                 exerciseData.data.removeAt(position)

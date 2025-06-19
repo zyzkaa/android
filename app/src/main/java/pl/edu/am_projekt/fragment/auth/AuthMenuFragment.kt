@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import pl.edu.am_projekt.R
 import pl.edu.am_projekt.databinding.AuthMenuFragmentBinding
-import pl.edu.am_projekt.databinding.LoginFragmentBinding
 
 class AuthMenuFragment : Fragment() {
 

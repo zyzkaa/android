@@ -10,7 +10,7 @@
         android:id="@+id/inputLeft"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nazwa"
+        android:hint="@string/input_name_hint"
         android:layout_weight="1"
         android:layout_marginEnd="8dp"
         android:inputType="numberDecimal" />
@@ -19,7 +19,7 @@
         android:id="@+id/inputRight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Opis"
+        android:hint="@string/input_description_hint"
         android:layout_weight="1"
         android:layout_marginEnd="8dp"
         android:inputType="number" />
@@ -28,6 +28,5 @@
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuń" />
-
+        android:text="@string/delete_button" />
 </LinearLayout>

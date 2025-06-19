@@ -2,6 +2,7 @@ package pl.edu.am_projekt.network
 
 import pl.edu.am_projekt.model.BasicDictResponse
 import pl.edu.am_projekt.model.RegisterRequest
+import pl.edu.am_projekt.model.workout.request.RemindersRequest
 import pl.edu.am_projekt.model.workout.request.WorkoutRequest
 import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.model.workout.response.WorkoutDetailsResponse
@@ -14,14 +15,23 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @POST("user/register")
-    fun registerUser(@Body request: RegisterRequest): Call<Void>
-
     @POST("user/temp_login")
     fun tempLogin(): Call<Void>
 
+    @POST("user/logout")
+    suspend fun logout()
+
 //    @GET("exercise/strength")
 //    fun getStrengthExercises() : Call<List<StrExerciseResponse>>
+
+    @POST("user/fcm/{token}")
+    suspend fun setFcmToken(@Path("token") token: String)
+
+    @POST("user/register")
+    suspend fun registerUser(@Body userRegisterRequest: RegisterRequest)
+
+    @POST("user/reminders")
+    suspend fun addReminders(@Body request: RemindersRequest)
 
     @GET("training/{page}/{amount}")
     suspend fun getTrainings(@Path("page") page: Int, @Path("amount") amount: Int) : MutableList<WorkoutShortResponse>

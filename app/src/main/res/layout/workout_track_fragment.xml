@@ -19,14 +19,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="name" />
+            android:hint="@string/workout_name_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zapisz"
+        android:text="@string/save_button"
         app:layout_constraintTop_toTopOf="@id/textInputLayout"
         app:layout_constraintBottom_toBottomOf="@id/textInputLayout"
         app:layout_constraintStart_toEndOf="@id/textInputLayout"
@@ -59,7 +59,7 @@
         android:id="@+id/addStrExerciseButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="add str"
+        android:text="@string/add_strength_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/addCarExerciseButton"
@@ -70,11 +70,10 @@
         android:id="@+id/addCarExerciseButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="add car"
+        android:text="@string/add_cardio_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/addStrExerciseButton"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,27 +1,48 @@
 <resources>
+    <string name="toolbar_settings_title">Settings</string>
+    <string name="search_hint">Search exercises…</string>
+    <string name="search_button">Search</string>
+    <string name="exercise_name_placeholder">Exercise name</string>
+    <string name="exercise_muscle_placeholder">Target muscles</string>
+    <string name="add_workout">Add workout</string>
+    <string name="workout_name_hint">Workout name</string>
+    <string name="save_button">Save</string>
+    <string name="add_strength_button">Add strength</string>
+    <string name="add_cardio_button">Add cardio</string>
+    <string name="input_name_hint">Name</string>
+    <string name="input_description_hint">Description</string>
+    <string name="delete_button">Delete</string>
+    <string name="header_title">Big title</string>
+    <string name="label_name">Name</string>
+    <string name="label_description">Description</string>
+    <string name="add_button">Add</string>
+    <string name="label_speed">Speed</string>
+    <string name="label_minutes">Minutes</string>
+    <string name="label_weight">Weight</string>
+    <string name="label_reps">Reps</string>
+
     <string name="weekly_reminder_title">New week</string>
     <string name="weekly_reminder_body">Remember to log your trainings and meals</string>
-
-<!--    <string name="register_text">Zarejestruj się</string>-->
-<!--    <string name="weight_placeholder">Waga (kg)</string>-->
-<!--    <string name="height_placeholder">Wzrost (cm)</string>-->
-<!--    <string name="birthdate_placeholder">Wiek</string>-->
-    <string name="deficit_placeholder">Deficyt kaloryczny (kcal)</string>
-
 
     <string name="app_name">ShredBook</string>
     <string name="start_button_meals">Mealplan</string>
     <string name="start_button_gym">Trainings</string>
     <string name="start_text">App name</string>
     <string name="settings_button_text">Settings</string>
+    <string name="age_placeholder">Age</string>
+
+    <string name="logout">Logout</string>
+    <string name="logout_summary">Sign out of your account</string>
+
 
     <string name="login_text">Log in</string>
-    <string name="login_email_placeholder">Email</string>
+    <string name="login_email_placeholder">Username</string>
     <string name="login_password_placeholder">Password</string>
     <string name="register_text">Register</string>
     <string name="height_placeholder">Height</string>
     <string name="weight_placeholder">Weight</string>
     <string name="birthdate_placeholder">Birthdate</string>
+    <string name="deficit_placeholder">Deficyt kaloryczny (kcal)</string>
 
     <string name="auth_start_text">App name</string>
     <string name="auth_start_login_button">Log in</string>
@@ -30,7 +51,6 @@
     <string name="confirm_button">Confirm</string>
 
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -48,5 +68,57 @@
     <string name="muscles_calves">Calves</string>
     <string name="muscles_biceps">Biceps</string>
     <string name="muscles_triceps">Triceps</string>
+
+    <string name="pref_title_theme">Theme</string>
+    <string name="pref_title_language">Language</string>
+    <string name="pref_category_schedule">Notification Schedule</string>
+    <string name="pref_title_time">Notification Time</string>
+    <string name="pref_title_days">Weekdays</string>
+
+    <string-array name="pref_theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>system</item>
+    </string-array>
+
+    <string-array name="pref_language_entries">
+        <item>Polish</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <item>pl</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="pref_days_entries">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string-array name="pref_days_values">
+        <item>mon</item>
+        <item>tue</item>
+        <item>wed</item>
+        <item>thu</item>
+        <item>fri</item>
+        <item>sat</item>
+        <item>sun</item>
+    </string-array>
+    <string-array name="pref_days_default">
+        <item>mon</item>
+        <item>tue</item>
+        <item>wed</item>
+        <item>thu</item>
+        <item>fri</item>
+    </string-array>
 
 </resources>

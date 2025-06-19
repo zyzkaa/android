@@ -19,6 +19,8 @@ import kotlinx.coroutines.launch
 import pl.edu.am_projekt.TimerViewModel
 import pl.edu.am_projekt.adapter.WorkoutTrackAdapter
 import pl.edu.am_projekt.databinding.WorkoutTrackFragmentBinding
+import pl.edu.am_projekt.model.Exercise
+import pl.edu.am_projekt.model.ExerciseType
 import pl.edu.am_projekt.model.ExerciseWithTrackData
 import pl.edu.am_projekt.model.InputData
 import pl.edu.am_projekt.model.workout.request.CardioExercise
@@ -29,8 +31,6 @@ import pl.edu.am_projekt.model.workout.request.WorkoutRequest
 import pl.edu.am_projekt.model.workout.response.WorkoutDetailsResponse
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
-import pl.edu.am_projekt.model.Exercise
-import pl.edu.am_projekt.model.ExerciseType
 import pl.edu.am_projekt.service.WorkoutTimerService
 import java.text.SimpleDateFormat
 import java.util.Date

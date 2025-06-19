@@ -12,7 +12,7 @@
         android:backgroundTint="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
         app:navigationIcon="@android:drawable/ic_media_previous"
-        app:title=""
+        app:title="@string/toolbar_settings_title"
         android:layout_marginBottom="8dp"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +24,5 @@
         app:navGraph="@navigation/nav_auth"
         app:defaultNavHost="true"
         android:layout_marginBottom="56dp" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

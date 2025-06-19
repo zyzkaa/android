@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import pl.edu.am_projekt.R
-import pl.edu.am_projekt.activity.MainActivity
 import pl.edu.am_projekt.activity.WorkoutActivity
-import pl.edu.am_projekt.databinding.AuthMenuFragmentBinding
 import pl.edu.am_projekt.databinding.MainMenuFragmentBinding
 
 class MainMenuFragment : Fragment(){

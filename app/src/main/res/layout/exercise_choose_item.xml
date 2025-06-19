@@ -13,6 +13,7 @@
             android:id="@+id/exerciseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/exercise_name_placeholder"
             android:textSize="18sp"
             android:padding="16dp" />
 
@@ -20,6 +21,7 @@
             android:id="@+id/exerciseMuscles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/exercise_muscle_placeholder"
             android:textSize="14sp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"

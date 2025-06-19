@@ -15,15 +15,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.launch
-import pl.edu.am_projekt.adapter.ExerciseAdapter
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.adapter.ExerciseAdapter
 import pl.edu.am_projekt.databinding.ChooseExerciseFragmentBinding
 import pl.edu.am_projekt.model.BasicDictResponse
+import pl.edu.am_projekt.model.Exercise
+import pl.edu.am_projekt.model.ExerciseType
 import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
-import pl.edu.am_projekt.model.Exercise
-import pl.edu.am_projekt.model.ExerciseType
 
 class ChooseExerciseFragment
     : Fragment() {
