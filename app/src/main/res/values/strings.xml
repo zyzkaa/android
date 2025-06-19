@@ -42,7 +42,7 @@
     <string name="height_placeholder">Height</string>
     <string name="weight_placeholder">Weight</string>
     <string name="birthdate_placeholder">Birthdate</string>
-    <string name="deficit_placeholder">Deficyt kaloryczny (kcal)</string>
+    <string name="deficit_placeholder">Calorie deficit (kcal)</string>
 
     <string name="auth_start_text">App name</string>
     <string name="auth_start_login_button">Log in</string>

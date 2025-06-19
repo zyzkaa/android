@@ -35,5 +35,7 @@ class MainMenuFragment : Fragment(){
         binding.settingsButton.setOnClickListener{
             findNavController().navigate(R.id.action_mainMenu_to_appSettings)
         }
+
+
     }
 }
