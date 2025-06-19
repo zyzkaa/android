@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/mealImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_meal"
+        android:layout_marginEnd="12dp"
+        android:clipToOutline="true" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mealName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meal Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?android:textColorPrimary" />
+
+        <TextView
+            android:id="@+id/mealCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="450 kcal"
+            android:textSize="14sp"
+            android:textColor="?android:textColorSecondary" />
+    </LinearLayout>
+        <ImageButton
+            android:id="@+id/removeButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:backgroundTint="@color/RemoveColor"
+            android:src="@drawable/remove_button"
+        android:contentDescription="Usuń posiłek" />
+
+</LinearLayout>

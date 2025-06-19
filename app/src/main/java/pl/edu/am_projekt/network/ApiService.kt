@@ -3,8 +3,13 @@ package pl.edu.am_projekt.network
 import MealResponseDAO
 import okhttp3.MultipartBody
 import pl.edu.am_projekt.model.BasicDictResponse
+import pl.edu.am_projekt.model.CreateMealDto
+import pl.edu.am_projekt.model.CreateMealPlanDto
 import pl.edu.am_projekt.model.ImageUploadResponse
+import pl.edu.am_projekt.model.NutrientsInput
 import pl.edu.am_projekt.model.RegisterRequest
+import pl.edu.am_projekt.model.ServerResponse
+import pl.edu.am_projekt.model.UpdatedNutrientsReturn
 import pl.edu.am_projekt.model.workout.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.model.workout.WorkoutDetailsResponse
 import pl.edu.am_projekt.model.workout.WorkoutShortResponse
@@ -69,10 +74,24 @@ interface ApiService {
     @GET("meal/getMy")
     suspend fun getMyMeals() : List<MealResponseDAO>
 
+    @GET("meal/getMyEdited")
+    suspend fun getMyEditedMeals() : List<MealResponseDAO>
+
+    @POST("meal/add")
+    suspend fun addNewMeal(@Body meal : CreateMealDto)
+
+    @POST("meal_plan/add")
+    suspend fun addMealPlan(@Body mealPlan: CreateMealPlanDto) : ServerResponse
+
+
     @Multipart
     @POST("api/image/upload")
     suspend fun uploadImage(
         @Part image: MultipartBody.Part
     ): Response<ImageUploadResponse>
+
+    @POST("meal/update_calories_and_nutrients")
+    suspend fun updateCaloriesAndNutrients(@Body ingredients: List<NutrientsInput>): Response<UpdatedNutrientsReturn>
+
 
 }

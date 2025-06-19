@@ -1,9 +1,9 @@
 package pl.edu.am_projekt.model
 
-
-data class IngredientReturnDto(
+data class MealSummary(
     val id: Int,
     val name: String,
-    val quantity: Int
+    val imageUrl: String,
+    val calories: Double
 )
 

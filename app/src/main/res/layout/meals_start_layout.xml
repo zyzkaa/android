@@ -10,14 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Launch Camera Button -->
-        <Button
-            android:id="@+id/openCameraButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zrób zdjęcie posiłku"
-            android:layout_marginBottom="16dp" />
-
         <!-- Section 1 -->
         <TextView
             android:id="@+id/section1Title"
@@ -76,6 +68,24 @@
             android:overScrollMode="never"
             android:clipToPadding="false"
             android:contentDescription="Lista posiłków utworzonych przez Ciebie" />
+
+        <TextView
+            android:id="@+id/section4Title"
+            android:text="Edytowane przez Ciebie"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/section4Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:contentDescription="Lista posiłków przez Ciebie edytowanych" />
 
     </LinearLayout>
 </ScrollView>

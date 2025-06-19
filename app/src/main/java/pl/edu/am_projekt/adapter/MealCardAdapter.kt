@@ -40,5 +40,7 @@ class MealCardAdapter(
         holder.view.setOnClickListener { onClick(meal) }
     }
 
+
+
     override fun getItemCount(): Int = meals.size
 }

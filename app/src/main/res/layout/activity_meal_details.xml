@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="500dp"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         android:fitsSystemWindows="true">
 
@@ -30,11 +30,60 @@
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax" />
 
+            <!-- FAB container inside collapsing layout -->
+            <FrameLayout
+                android:id="@+id/fabContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="pin">
+
+
+                <!-- Edit FAB -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/editMealButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="92dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/edit_button"
+                    android:backgroundTint="@color/EditColor"
+                    android:tint="@color/white"/>
+
+                <!-- Main FAB -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/addMealButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="92dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/add_button"
+                    app:backgroundTint="@color/AddColor"/>
+
+                <!-- Confirm FAB -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/confirmAddMealButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="92dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/confirm_button"
+                    android:visibility="gone"
+                    android:backgroundTint="@color/ConfirmColor"
+                    android:tint="@color/white"/>
+
+
+            </FrameLayout>
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:fillViewport="true"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -50,30 +99,32 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:weightSum="1"
                 android:paddingBottom="12dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/mealNameTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:text="Meal Name"
-                    android:textColor="?android:textColorPrimary"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-     />
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="3"
+                    android:gravity="start|top"
+                    android:scrollHorizontally="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/caloriesTextView"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
-                    android:text="450 kcal"
                     android:gravity="end"
-                    android:textSize="16sp"
-                    android:textColor="?android:textColorSecondary" />
+                    android:text="450 kcal"
+                    android:textColor="?android:textColorSecondary"
+                    android:textSize="16sp" />
             </LinearLayout>
+
 
             <TextView
                 android:id="@+id/descriptionTitle"
@@ -93,25 +144,6 @@
                 android:textColor="?android:textColorPrimary"
                 android:paddingBottom="12dp"               />
 
-            <TextView
-                android:id="@+id/nutritionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Wartości odżywcze"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="?android:textColorPrimary"
-                android:layout_marginTop="8dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/nutritionRecycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:clipToPadding="false"
-                android:paddingBottom="12dp"
-                android:contentDescription="Wartości odżywcze" />
-
 
             <TextView
                 android:id="@+id/ingredientsTitle"
@@ -126,11 +158,37 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ingredientsRecycler"
+                android:descendantFocusability="afterDescendants"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:clipToPadding="false"
                 android:contentDescription="Składaniki"/>
+
+
+            <TextView
+                android:id="@+id/nutritionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wartości odżywcze"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:layout_marginTop="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nutritionRecycler"
+                android:descendantFocusability="afterDescendants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="12dp"
+                android:contentDescription="Wartości odżywcze" />
+
+
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -66,12 +66,9 @@
             android:theme="@style/Theme.Am_projekt"
             android:exported="true" />
         <activity
-            android:name=".activity.MealsStartActivity"
+            android:name=".activity.MealActivity"
             android:theme="@style/Theme.Am_projekt"
-            android:exported="true" />
-        <activity
-            android:name=".activity.MealDetailsActivity"
-            android:theme="@style/Theme.Am_projekt"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true" />
         <service
             android:name=".service.WorkoutTimerService"

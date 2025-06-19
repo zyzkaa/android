@@ -22,7 +22,7 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.mealPlansButton.setOnClickListener{
-            val intent = Intent(this@StartActivity, MealsStartActivity::class.java)
+            val intent = Intent(this@StartActivity, MealActivity::class.java)
             startActivity(intent)
 
         }

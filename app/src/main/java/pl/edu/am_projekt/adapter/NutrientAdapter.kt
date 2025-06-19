@@ -12,13 +12,13 @@ class NutrientAdapter(private val nutrients: List<Nutrient>) :
     RecyclerView.Adapter<NutrientAdapter.NutrientViewHolder>() {
 
     class NutrientViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name: TextView = view.findViewById(R.id.heading)
-        val amount: TextView = view.findViewById(R.id.supportText)
+        val name: TextView = view.findViewById(R.id.nutrientName)
+        val amount: TextView = view.findViewById(R.id.quantity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NutrientViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_ingredient, parent, false)
+            .inflate(R.layout.item_nutrient, parent, false)
         return NutrientViewHolder(view)
     }
 

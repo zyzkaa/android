@@ -7,5 +7,6 @@
         <item name="colorSecondary">@color/secondaryLight</item>
         <item name="colorSecondaryVariant">@color/secondaryVariantLight</item>
         <item name="background">@color/white</item>
+
     </style>
 </resources>
