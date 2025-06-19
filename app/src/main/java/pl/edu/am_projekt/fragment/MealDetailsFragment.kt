@@ -138,6 +138,9 @@ class MealDetailsFragment : Fragment() {
                 )
 
                 if (originalMealDto != editedMealDto) {
+                    editedMealDto = editedMealDto?.copy(
+                        isShared = false
+                    )
                     showSaveChangesDialog {
                         viewLifecycleOwner.lifecycleScope.launch {
                             addNewMeal(editedMealDto!!)

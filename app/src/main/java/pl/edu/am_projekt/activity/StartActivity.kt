@@ -28,3 +28,5 @@ class StartActivity : AppCompatActivity() {
         }
     }
 }
+
+annotation class WorkoutListActivity

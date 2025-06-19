@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.R
-import pl.edu.am_projekt.activity.CameraActivity
 import pl.edu.am_projekt.adapter.MealCardAdapter
 import pl.edu.am_projekt.databinding.MealsStartLayoutBinding
 import pl.edu.am_projekt.model.parcelable.Ingredient
