@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp"
+    android:paddingTop="20dp"
     android:background="?android:attr/selectableItemBackground"
     android:divider="?android:attr/dividerVertical"
     android:showDividers="middle">
@@ -13,7 +14,7 @@
         android:id="@+id/productNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nazwa produktu"
+        android:text="@string/product_name"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="?android:textColorPrimary" />
@@ -31,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Kcal: 0"
+            android:text="@string/kcal_placeholder"
             android:textSize="14sp"
             android:textColor="?android:textColorSecondary" />
 
@@ -40,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Węgle: 0g"
+            android:text="@string/carbs_placeholder"
             android:textSize="14sp"
             android:textColor="?android:textColorSecondary" />
 
@@ -49,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Białko: 0g"
+            android:text="@string/protein_placeholder"
             android:textSize="14sp"
             android:textColor="?android:textColorSecondary" />
 
@@ -58,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Tłuszcz: 0g"
+            android:text="@string/fat_placeholder"
             android:textSize="14sp"
             android:textColor="?android:textColorSecondary" />
     </LinearLayout>

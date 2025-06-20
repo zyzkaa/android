@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-    >
-
+    android:layout_centerHorizontal="true">
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -18,22 +16,23 @@
         android:id="@+id/noMealsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Brak wybranych posiłków"
+        android:text="@string/no_selected_meals"
         android:textSize="16sp"
         android:gravity="center"
         android:visibility="gone"
         android:textColor="@android:color/darker_gray"
-        android:padding="24dp"/>
+        android:padding="24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/selectedMealsRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/createMealPlan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stwórz plan"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/create_meal_plan"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

@@ -10,23 +10,24 @@
         android:id="@+id/noMealsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Brak wybranych posiłków"
+        android:text="@string/no_selected_meals"
         android:textSize="16sp"
         android:gravity="center"
         android:visibility="gone"
         android:textColor="@android:color/darker_gray"
-        android:padding="24dp"/>
+        android:padding="24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/goToPlanButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Przejdź do planu"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/go_to_plan"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>

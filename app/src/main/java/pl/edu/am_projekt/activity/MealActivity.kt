@@ -1,12 +1,15 @@
 package pl.edu.am_projekt.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.badge.ExperimentalBadgeUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import pl.edu.am_projekt.LanguageManager
 import pl.edu.am_projekt.R
 import pl.edu.am_projekt.fragment.meal.BrowseMealPlansFragment
 import pl.edu.am_projekt.fragment.meal.BrowseMealsFragment
@@ -16,6 +19,7 @@ import pl.edu.am_projekt.ui.SelectedMealsBottomSheet
 class MealActivity : AppCompatActivity() {
 
     private lateinit var listFab: FloatingActionButton
+//    private lateinit var toolBar: com.google.android.material.appbar.MaterialToolbar
     private lateinit var backFab: FloatingActionButton
     private lateinit var mealPlanFab: FloatingActionButton
 
@@ -37,10 +41,10 @@ class MealActivity : AppCompatActivity() {
         MealBadgeManager.attachBadge(listFab)
         MealBadgeManager.setMealCount(SelectedMealsManager.getMeals().size)
 
-        backFab = findViewById(R.id.backFab)
-        backFab.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
+//        backFab = findViewById(R.id.backFab)
+//        backFab.setOnClickListener {
+//            onBackPressedDispatcher.onBackPressed()
+//        }
 
         mealPlanFab = findViewById(R.id.mealPlanFab)
         mealPlanFab.setOnClickListener {
@@ -55,7 +59,10 @@ class MealActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
-
+//        toolBar = findViewById(R.id.toolbarMeals);
+//        toolBar.setNavigationOnClickListener {
+//            onBackPressedDispatcher.onBackPressed()
+//        }
 
 
         listFab.setOnClickListener {
@@ -67,7 +74,10 @@ class MealActivity : AppCompatActivity() {
 
 
     }
-
+    override fun attachBaseContext(newBase: Context?) {
+        val localeUpdatedContext = newBase?.let { LanguageManager.applyLanguage(it) }
+        super.attachBaseContext(localeUpdatedContext)
+    }
     fun showBackFab(show: Boolean) {
         backFab.visibility = if (show) View.VISIBLE else View.GONE
     }

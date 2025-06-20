@@ -25,7 +25,7 @@
             android:id="@+id/mealName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Meal Name"
+            android:text="@string/meal_name_placeholder"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="?android:textColorPrimary" />
@@ -34,17 +34,18 @@
             android:id="@+id/mealCalories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="450 kcal"
+            android:text="@string/meal_kcal_placeholder"
             android:textSize="14sp"
             android:textColor="?android:textColorSecondary" />
     </LinearLayout>
-        <ImageButton
-            android:id="@+id/removeButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end|center_vertical"
-            android:backgroundTint="@color/RemoveColor"
-            android:src="@drawable/remove_button"
-        android:contentDescription="Usuń posiłek" />
+
+    <ImageButton
+        android:id="@+id/removeButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|center_vertical"
+        android:backgroundTint="@color/RemoveColor"
+        android:src="@drawable/remove_button"
+        android:contentDescription="@string/remove_meal_desc" />
 
 </LinearLayout>
