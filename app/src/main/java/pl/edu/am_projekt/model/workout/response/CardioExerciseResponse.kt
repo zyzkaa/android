@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CardioExerciseResponse(
-    var cardioExercise: BasicDictResponse,
+    var cardioExercise: BasicExerciseResponse,
     var params: List<CardioExerciseParamsResponse>,
     var calories: Double,
     var time: String

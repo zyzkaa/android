@@ -23,6 +23,7 @@
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:inputType="text"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -34,6 +35,8 @@
         android:text="@string/search_button"
         app:layout_constraintTop_toTopOf="@id/searchInputLayout"
         app:layout_constraintBottom_toBottomOf="@id/searchInputLayout"
+        app:backgroundTint="?attr/colorPrimary"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View

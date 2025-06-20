@@ -1,29 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.Am_projekt" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Główne kolory dla dark mode -->
-        <item name="colorPrimary">@color/primaryDark</item>
-        <item name="colorPrimaryVariant">@color/primaryVariantDark</item>
+        <!-- Podstawowe kolory -->
+        <item name="textAppearanceBodyLarge">@color/white</item>
+        <item name="textAppearanceBodyMedium">@color/white</item>
+        <item name="textAppearanceBodySmall">@color/white</item>
+        <item name="colorPrimary">#743B83</item>
+        <item name="colorPrimaryVariant">#8C4AA3</item>
         <item name="colorSecondary">@color/secondaryDark</item>
         <item name="colorSecondaryVariant">@color/secondaryVariantDark</item>
-
-        <!-- Tło, status bar, nawigacja -->
         <item name="background">@color/black</item>
         <item name="android:statusBarColor">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:windowLightStatusBar">false</item>
-
-        <!-- Teksty -->
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/gray_light</item>
-
-        <!-- Preferencje -->
         <item name="preferenceCategoryTitleTextColor">@color/primaryDark</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Custom.Dark</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
-    <style name="PreferenceThemeOverlay.Custom.Dark" parent="PreferenceThemeOverlay.v14.Material">
+    <style name="PreferenceThemeOverlay.Custom" parent="PreferenceThemeOverlay.v14.Material">
         <item name="colorAccent">@color/primaryDark</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/gray_light</item>
     </style>
+
+    <style name="PrefTitleText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="PrefSummaryText" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="PrefCategoryTitleText" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
 </resources>

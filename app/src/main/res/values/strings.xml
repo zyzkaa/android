@@ -7,8 +7,8 @@
     <string name="add_workout">Add workout</string>
     <string name="workout_name_hint">Workout name</string>
     <string name="save_button">Save</string>
-    <string name="add_strength_button">Add strength</string>
-    <string name="add_cardio_button">Add cardio</string>
+    <string name="add_strength_button">Strength exercise</string>
+    <string name="add_cardio_button">Cardio exercise</string>
     <string name="input_name_hint">Name</string>
     <string name="input_description_hint">Description</string>
     <string name="delete_button">Delete</string>
@@ -20,6 +20,11 @@
     <string name="label_minutes">Minutes</string>
     <string name="label_weight">Weight</string>
     <string name="label_reps">Reps</string>
+    <string name="date_label">Date:</string>
+    <string name="duration_label">Length:</string>
+    <string name="calories_label">Calories:</string>
+
+
 
     <string name="weekly_reminder_title">New week</string>
     <string name="weekly_reminder_body">Remember to log your trainings and meals</string>

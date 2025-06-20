@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="#EEEEEE"
+    android:background="?attr/colorSurfaceVariant"
     android:padding="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,7 +13,9 @@
         android:hint="@string/input_name_hint"
         android:layout_weight="1"
         android:layout_marginEnd="8dp"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:backgroundTint="?attr/colorSecondary"
+        android:textColor="?android:textColorPrimary"/>
 
     <EditText
         android:id="@+id/inputRight"
@@ -22,11 +24,15 @@
         android:hint="@string/input_description_hint"
         android:layout_weight="1"
         android:layout_marginEnd="8dp"
-        android:inputType="number" />
+        android:inputType="number"
+        android:backgroundTint="?attr/colorSecondary"
+        android:textColor="?android:textColorPrimary" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/delete_button" />
+        android:textColor="?android:textColorPrimary"
+        android:text="@string/delete_button"
+        android:backgroundTint="?attr/colorSecondary" />
 </LinearLayout>

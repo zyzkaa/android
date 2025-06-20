@@ -7,8 +7,8 @@
     <string name="add_workout">Dodaj trening</string>
     <string name="workout_name_hint">Nazwa treningu</string>
     <string name="save_button">Zapisz</string>
-    <string name="add_strength_button">Dodaj siłowe</string>
-    <string name="add_cardio_button">Dodaj cardio</string>
+    <string name="add_strength_button">Ćwiczenia siłowe</string>
+    <string name="add_cardio_button">Ćwiczenia kardio</string>
     <string name="input_name_hint">Nazwa</string>
     <string name="input_description_hint">Opis</string>
     <string name="delete_button">Usuń</string>
@@ -20,6 +20,10 @@
     <string name="label_minutes">Minuty</string>
     <string name="label_weight">Ciężar</string>
     <string name="label_reps">Powtórzenia</string>
+    <string name="date_label">Data:</string>
+    <string name="duration_label">Czas trwania:</string>
+    <string name="calories_label">Kalorie:</string>
+
 
     <string name="weekly_reminder_title">Nowy tydzień</string>
     <string name="weekly_reminder_body">Nie zapomnij zapisać treningów i posiłków</string>

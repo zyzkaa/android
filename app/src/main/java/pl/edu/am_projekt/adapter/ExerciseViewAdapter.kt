@@ -1,6 +1,7 @@
 package pl.edu.am_projekt.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +28,14 @@ class ExerciseViewAdapter(private val exercises: List<ExerciseResponse>, private
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val exercise = exercises[position]
+        val context = holder.itemView.context
+        val currentLang = context.resources.configuration.locales[0].language
 
-        holder.exerciseName.text = when (exercise){
-            is StrengthExerciseReponse -> exercise.strengthExercise.name
-            is CardioExerciseResponse -> exercise.cardioExercise.name
+        Log.d("lang", currentLang)
+
+        holder.exerciseName.text = when (exercise) {
+            is StrengthExerciseReponse -> if (currentLang == "pl") exercise.strengthExercise.namePl else exercise.strengthExercise.nameEn
+            is CardioExerciseResponse -> if (currentLang == "pl") exercise.cardioExercise.namePl else exercise.cardioExercise.nameEn
             else -> ""
         }
 

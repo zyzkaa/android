@@ -11,6 +11,7 @@
 
         <TextView
             android:id="@+id/exerciseName"
+            android:textColor="?attr/textAppearanceBodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/exercise_name_placeholder"
@@ -26,7 +27,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
-            android:textColor="#888888"
+            android:textColor="?attr/textAppearanceBodyLarge"
             android:visibility="gone" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
