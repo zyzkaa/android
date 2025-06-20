@@ -13,7 +13,7 @@
         <!-- Section 1 -->
         <TextView
             android:id="@+id/section1Title"
-            android:text="Wszystkie"
+            android:text="@string/section_all"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -27,13 +27,12 @@
             android:paddingTop="8dp"
             android:overScrollMode="never"
             android:clipToPadding="false"
-            android:contentDescription="Lista wszytskich posiłków" />
-
+            android:contentDescription="." />
 
         <!-- Section 2 -->
         <TextView
             android:id="@+id/section2Title"
-            android:text="Ostatnio dodane"
+            android:text="@string/section_recent"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -47,13 +46,12 @@
             android:paddingTop="8dp"
             android:overScrollMode="never"
             android:clipToPadding="false"
-            android:contentDescription="Lista posiłków Ostatnio dodanych" />
-
+            android:contentDescription="." />
 
         <!-- Section 3 -->
         <TextView
             android:id="@+id/section3Title"
-            android:text="Twoje"
+            android:text="@string/section_yours"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -67,11 +65,12 @@
             android:paddingTop="8dp"
             android:overScrollMode="never"
             android:clipToPadding="false"
-            android:contentDescription="Lista posiłków utworzonych przez Ciebie" />
+            android:contentDescription="." />
 
+        <!-- Section 4 -->
         <TextView
             android:id="@+id/section4Title"
-            android:text="Edytowane przez Ciebie"
+            android:text="@string/section_edited"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -85,7 +84,7 @@
             android:paddingTop="8dp"
             android:overScrollMode="never"
             android:clipToPadding="false"
-            android:contentDescription="Lista posiłków przez Ciebie edytowanych" />
+            android:contentDescription="." />
 
     </LinearLayout>
 </ScrollView>

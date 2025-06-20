@@ -9,9 +9,7 @@
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="30dp" />
-
+        android:layout_height="match_parent" />
 
     <!-- Global FAB (bottom-right) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,7 +20,7 @@
         android:layout_margin="24dp"
         android:src="@drawable/list_button"
         app:backgroundTint="?colorPrimaryVariant"
-        android:contentDescription="Lista zaznaczonych posiłków" />
+        android:contentDescription="@string/global_fab_description" />
 
     <!-- Back FAB (top-left) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,8 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
         android:layout_margin="16dp"
+        android:visibility="gone"
         android:src="@drawable/back_button"
-        android:contentDescription="Cofnij" />
+        android:contentDescription="@string/back_fab_description" />
 
     <!-- Meal Plan FAB (bottom-left) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -43,6 +42,6 @@
         android:layout_margin="24dp"
         android:src="@drawable/calendar_button"
         app:backgroundTint="@color/EditColor"
-    android:contentDescription="Zobacz plan posiłków" />
+        android:contentDescription="@string/meal_plan_fab_description" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

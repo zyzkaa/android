@@ -12,7 +12,7 @@
         android:id="@+id/planTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plan żywieniowy"
+        android:text="@string/meal_plan_title"
         android:textSize="18sp"
         android:textStyle="bold"
         android:paddingBottom="8dp" />

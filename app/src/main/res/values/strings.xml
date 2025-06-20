@@ -1,6 +1,8 @@
 <resources>
     <string name="toolbar_settings_title">Settings</string>
     <string name="search_hint">Search exercises…</string>
+    <string name="search_product_hint">Search products…</string>
+
     <string name="search_button">Search</string>
     <string name="exercise_name_placeholder">Exercise name</string>
     <string name="exercise_muscle_placeholder">Target muscles</string>
@@ -40,6 +42,18 @@
     <string name="logout">Logout</string>
     <string name="logout_summary">Sign out of your account</string>
 
+    <string name="section_all">All</string>
+    <string name="section_recent">Recently Added</string>
+    <string name="section_yours">Yours</string>
+    <string name="section_edited">Edited by You</string>
+
+    <string name="desc_all_meals">List of all meals</string>
+    <string name="desc_recent_meals">List of recently added meals</string>
+    <string name="desc_your_meals">List of meals created by you</string>
+    <string name="desc_edited_meals">List of meals you have edited</string>
+    <string name="global_fab_description">Selected meals list</string>
+    <string name="back_fab_description">Back</string>
+    <string name="meal_plan_fab_description">View meal plan</string>
 
     <string name="login_text">Log in</string>
     <string name="login_email_placeholder">Username</string>
@@ -49,11 +63,43 @@
     <string name="weight_placeholder">Weight</string>
     <string name="birthdate_placeholder">Birthdate</string>
     <string name="deficit_placeholder">Calorie deficit (kcal)</string>
-
+    <string name="create_meal_plan">Create meal plan</string>
+    <string name="meal_name_placeholder">Meal Name</string>
+    <string name="meal_kcal_placeholder">450 kcal</string>
+    <string name="remove_meal_desc">Remove meal</string>
+    <string name="meal_image_desc">Meal image</string>
     <string name="auth_start_text">App name</string>
     <string name="auth_start_login_button">Log in</string>
     <string name="auth_start_register_button">Register</string>
-
+    <string name="product_name">Product Name</string>
+    <string name="kcal_placeholder">Kcal: 0</string>
+    <string name="carbs_placeholder">Carbs: 0g</string>
+    <string name="protein_placeholder">Protein: 0g</string>
+    <string name="fat_placeholder">Fat: 0g</string>
+    <string name="no_selected_meals">No meals selected</string>
+    <string name="go_to_plan">Go to plan</string>
+    <string name="ingredient_name">Ingredient</string>
+    <string name="remove_ingredient">Remove ingredient</string>
+    <string name="search_description">Search</string>
+    <string name="add_product_description">Add new product</string>
+    <string name="barcode_search_description">Search barcode</string>
+    <string name="no_meals_text">No meals planned for the selected day</string>
+    <string name="product_name_hint">Name</string>
+    <string name="kcal_label">Kcal</string>
+    <string name="carbs_label">Carbs</string>
+    <string name="protein_label">Protein</string>
+    <string name="fat_label">Fat</string>
+    <string name="nutrient_name_placeholder">Nutrient Name</string>
+    <string name="nutrient_quantity_placeholder">0 g</string>
+    <string name="ingredient_list_desc">Ingredient list</string>
+    <string name="meal_plan_title">Meal Plan</string>
+    <string name="meal_description_title">Description</string>
+    <string name="ingredients_title">Ingredients</string>
+    <string name="nutrition_title">Nutrition Facts</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="edit_meal">Edit meal</string>
+    <string name="add_meal">Add meal</string>
+    <string name="confirm_add_meal">Confirm addition</string>
     <string name="confirm_button">Confirm</string>
 
     <string name="action_settings">Settings</string>

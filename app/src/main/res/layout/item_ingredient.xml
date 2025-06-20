@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Ingredient Name"
+        android:text="@string/ingredient_name"
         android:textColor="?android:textColorPrimary"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -28,7 +28,8 @@
         android:gravity="center"
         android:text="50"
         android:textColor="?android:textColorPrimary"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:hint="@string/nutrient_quantity_placeholder" />
 
     <ImageButton
         android:id="@+id/removeButton"
@@ -37,6 +38,6 @@
         android:layout_gravity="end|center_vertical"
         android:backgroundTint="@color/RemoveColor"
         android:src="@drawable/remove_button"
-        android:contentDescription="Usuń produkt"
+        android:contentDescription="@string/remove_ingredient"
         app:tint="@color/white" />
 </LinearLayout>

@@ -1,6 +1,8 @@
 <resources>
     <string name="toolbar_settings_title">Ustawienia</string>
     <string name="search_hint">Szukaj ćwiczeń…</string>
+    <string name="search_product_hint">Szukaj produktów…</string>
+
     <string name="search_button">Szukaj</string>
     <string name="exercise_name_placeholder">Nazwa ćwiczenia</string>
     <string name="exercise_muscle_placeholder">Docelowe mięśnie</string>
@@ -62,7 +64,14 @@
     <string name="second_fragment_label">Drugi ekran</string>
     <string name="next">Dalej</string>
     <string name="previous">Wstecz</string>
-
+    <string name="section_all">Wszystkie</string>
+    <string name="section_recent">Ostatnio dodane</string>
+    <string name="section_yours">Twoje</string>
+    <string name="section_edited">Edytowane przez Ciebie</string>
+    <string name="desc_all_meals">Lista wszystkich posiłków</string>
+    <string name="desc_recent_meals">Lista posiłków ostatnio dodanych</string>
+    <string name="desc_your_meals">Lista Twoich posiłków</string>
+    <string name="desc_edited_meals">Lista posiłków edytowanych przez Ciebie</string>
     <string name="muscles_abdominals">Mięśnie brzucha</string>
     <string name="muscles_lower_back">Dolne plecy</string>
     <string name="muscles_shoulders">Barki</string>
@@ -75,13 +84,48 @@
     <string name="muscles_calves">Łydki</string>
     <string name="muscles_biceps">Bicepsy</string>
     <string name="muscles_triceps">Tricepsy</string>
-
+    <string name="meal_name_placeholder">Nazwa posiłku</string>
+    <string name="meal_kcal_placeholder">450 kcal</string>
+    <string name="remove_meal_desc">Usuń posiłek</string>
+    <string name="meal_image_desc">Obraz posiłku</string>
     <string name="pref_title_theme">Motyw</string>
     <string name="pref_title_language">Język</string>
     <string name="pref_category_schedule">Harmonogram powiadomień</string>
     <string name="pref_title_time">Godzina powiadomienia</string>
     <string name="pref_title_days">Dni tygodnia</string>
-
+    <string name="create_meal_plan">Stwórz plan</string>
+    <string name="ingredient_name">Składnik</string>
+    <string name="remove_ingredient">Usuń składnik</string>
+    <string name="no_selected_meals">Brak wybranych posiłków</string>
+    <string name="go_to_plan">Przejdź do planu</string>
+    <string name="search_description">Szukaj</string>
+    <string name="add_product_description">Dodaj nowy produkt</string>
+    <string name="barcode_search_description">Wyszukaj barcode</string>
+    <string name="no_meals_text">Brak posiłków w planie na wybrany dzień</string>
+    <string name="product_name_hint">Nazwa</string>
+    <string name="kcal_label">Kcal</string>
+    <string name="carbs_label">Węglowodany</string>
+    <string name="protein_label">Białko</string>
+    <string name="fat_label">Tłuszcze</string>
+    <string name="nutrient_name_placeholder">Nazwa składnika</string>
+    <string name="nutrient_quantity_placeholder">0 g</string>
+    <string name="ingredient_list_desc">Lista składników</string>
+    <string name="meal_plan_title">Plan żywieniowy</string>
+    <string name="meal_description_title">Opis</string>
+    <string name="ingredients_title">Składniki</string>
+    <string name="nutrition_title">Wartości odżywcze</string>
+    <string name="add_ingredient">Dodaj składnik</string>
+    <string name="edit_meal">Edytuj posiłek</string>
+    <string name="add_meal">Dodaj posiłek</string>
+    <string name="product_name">Nazwa produktu</string>
+    <string name="kcal_placeholder">Kcal: 0</string>
+    <string name="carbs_placeholder">Węgle: 0g</string>
+    <string name="protein_placeholder">Białko: 0g</string>
+    <string name="fat_placeholder">Tłuszcz: 0g</string>
+    <string name="global_fab_description">Lista zaznaczonych posiłków</string>
+    <string name="back_fab_description">Cofnij</string>
+    <string name="meal_plan_fab_description">Zobacz plan posiłków</string>
+    <string name="confirm_add_meal">Potwierdź dodanie</string>
     <string-array name="pref_theme_entries">
         <item>Jasny</item>
         <item>Ciemny</item>

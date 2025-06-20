@@ -14,16 +14,17 @@
         android:id="@+id/noMealsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Brak posiłków w planie na wybrany dzień"
+        android:text="@string/no_meals_text"
         android:textSize="16sp"
         android:gravity="center"
         android:visibility="gone"
         android:textColor="@android:color/darker_gray"
-        android:padding="24dp"/>
+        android:padding="24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plannedMealsRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
+
 </LinearLayout>
