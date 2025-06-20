@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainLayoutBinding
 
-
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(LanguageManager.applyLanguage(newBase))
+    override fun attachBaseContext(newBase: Context?) {
+        val localeUpdatedContext = newBase?.let { LanguageManager.applyLanguage(it) }
+        super.attachBaseContext(localeUpdatedContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

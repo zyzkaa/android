@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import pl.edu.am_projekt.activity.MainActivity
 import pl.edu.am_projekt.databinding.LoginFragmentBinding
+import pl.edu.am_projekt.model.LoginRequest
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
 import retrofit2.Call
@@ -39,43 +42,43 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        // ustawiamy Toolbar z layoutu jako ActionBar Activity
-//        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.materialToolbar)
-//        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-//            setDisplayHomeAsUpEnabled(true)
-//            title = ""       // pusty tytuł – tak jak w Activity
-//        }
-
-        // do wywalenia
         binding.buttonLogin.setOnClickListener {
-            apiService.tempLogin().enqueue(object : Callback<Void> {
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if (response.isSuccessful) {
-                        val intent = Intent(requireContext(), MainActivity::class.java)
-                        startActivity(intent)
-                        requireActivity().finish()
-                    } else {
-                        Log.d("HTTP", "Kod odpowiedzi: ${response.code()}")
-                        Toast.makeText(requireContext(), "Error occurred", Toast.LENGTH_LONG).show()
-                    }
-                }
+            val username = binding.emailEditText.text?.toString()?.trim().orEmpty()
+            val password = binding.passwordEditText.text?.toString()?.trim().orEmpty()
 
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Log.e("API_ERROR", "Failure: ${t.message}", t)
-                    Toast.makeText(requireContext(), "Connection error", Toast.LENGTH_LONG).show()
-                }
-            })
+            if (username.isBlank() || password.isBlank()) {
+                return@setOnClickListener
+            }
+
+            val loginRequest = LoginRequest(username, password)
+
+            lifecycleScope.launch {
+                apiService.login(loginRequest)
+                val intent = Intent(requireContext(), MainActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+            }
+
+//            apiService.tempLogin().enqueue(object : Callback<Void> {
+//                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+//                    if (response.isSuccessful) {
+//                        val intent = Intent(requireContext(), MainActivity::class.java)
+//                        startActivity(intent)
+//                        requireActivity().finish()
+//                    } else {
+//                        Log.d("HTTP", "Kod odpowiedzi: ${response.code()}")
+//                        Toast.makeText(requireContext(), "Error occurred", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<Void>, t: Throwable) {
+//                    Log.e("API_ERROR", "Failure: ${t.message}", t)
+//                    Toast.makeText(requireContext(), "Connection error", Toast.LENGTH_LONG).show()
+//                }
+//            })
         }
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return if (item.itemId == android.R.id.home) {
-//            requireActivity().onBackPressedDispatcher.onBackPressed()
-//            true
-//        } else {
-//            super.onOptionsItemSelected(item)
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

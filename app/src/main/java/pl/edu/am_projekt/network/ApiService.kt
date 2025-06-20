@@ -8,6 +8,7 @@ import pl.edu.am_projekt.model.CreateMealDto
 import pl.edu.am_projekt.model.CreateMealPlanDto
 import pl.edu.am_projekt.model.CreateProductDto
 import pl.edu.am_projekt.model.ImageUploadResponse
+import pl.edu.am_projekt.model.LoginRequest
 import pl.edu.am_projekt.model.MealPlanDto
 import pl.edu.am_projekt.model.NutrientsInput
 import pl.edu.am_projekt.model.RegisterRequest
@@ -38,6 +39,9 @@ interface ApiService {
 
     @POST("user/logout")
     suspend fun logout()
+
+    @POST("user/login")
+    suspend fun login(@Body userLoginRequest : LoginRequest)
 
 //    @GET("exercise/strength")
 //    fun getStrengthExercises() : Call<List<StrExerciseResponse>>

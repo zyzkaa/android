@@ -92,6 +92,7 @@ class WorkoutTrackFragment : Fragment() {
                 val response = postNewWorkout(workout)
                 val action = WorkoutTrackFragmentDirections
                     .actionWorkoutTrackToWorkoutView(response.id)
+                requireContext().stopService(timerIntent)
                 findNavController().navigate(action)
 //                findNavController().popBackStack(R.id.WorkoutTrackFragment, true)
             }
@@ -231,7 +232,7 @@ class WorkoutTrackFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        requireContext().stopService(timerIntent)
+//        requireContext().stopService(timerIntent)
     }
 
 }
