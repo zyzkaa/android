@@ -28,6 +28,9 @@
     <string name="weekly_reminder_title">Nowy tydzień</string>
     <string name="weekly_reminder_body">Nie zapomnij zapisać treningów i posiłków</string>
 
+    <string name="workout_reminder_title">Przypomnienie</string>
+    <string name="workout_reminder_body">Pamiętaj o dzisiejszym treningu</string>
+
     <string name="app_name">ShredBook</string>
     <string name="start_button_meals">Plan posiłków</string>
     <string name="start_button_gym">Treningi</string>
