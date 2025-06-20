@@ -21,6 +21,7 @@ import pl.edu.am_projekt.databinding.ChooseExerciseFragmentBinding
 import pl.edu.am_projekt.model.BasicDictResponse
 import pl.edu.am_projekt.model.Exercise
 import pl.edu.am_projekt.model.ExerciseType
+import pl.edu.am_projekt.model.workout.response.BasicExerciseResponse
 import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
@@ -172,28 +173,28 @@ class ChooseExerciseFragment
             val exercises = if(text.isNullOrEmpty()) fetchAllCardioExercises()
             else fetchCardioExercisesBySearch(text)
 
-            exercises.forEach{e -> Log.d("exercise", e.name)}
+            exercises.forEach{e -> Log.d("exercise", e.namePl)}
 
-            val asd = exercises.map {
-                Exercise.fromBasicDictResponse(it)
-            }
-
-            asd.forEach{
-                el -> Log.d("asd", el.name)
-            }
+//            val asd = exercises.map {
+//                Exercise.fromBasicDictResponse(it, requireContext())
+//            }
+//
+//            asd.forEach{
+//                el -> Log.d("asd", el.name)
+//            }
 
             adapter.updateData(exercises.map {
-                Exercise.fromBasicDictResponse(it)
+                Exercise.fromBasicDictResponse(it, requireContext())
             })
         }
 
     }
 
-    private suspend fun fetchAllCardioExercises() : List<BasicDictResponse>{
+    private suspend fun fetchAllCardioExercises() : List<BasicExerciseResponse>{
         return apiService.getAllCardioExercises()
     }
 
-    private suspend fun fetchCardioExercisesBySearch(text: String) : List<BasicDictResponse>{
+    private suspend fun fetchCardioExercisesBySearch(text: String) : List<BasicExerciseResponse>{
         return apiService.getCardioExercisesBySearch(text)
     }
 

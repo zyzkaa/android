@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainLayoutBinding
 
+
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(LanguageManager.applyLanguage(newBase))
     }
@@ -31,29 +32,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
-            Log.d("FCM", "FCM token: $token")
+        val sharedPrefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val tokenAlreadySent = sharedPrefs.getBoolean("fcm_sent", false)
 
-            val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
+        if (!tokenAlreadySent) {
+            FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
+                Log.d("FCM", "FCM token: $token")
 
-            lifecycleScope.launch {
-                try {
-                    apiService.setFcmToken(token)
-                } catch (e: Exception) {
-                    Log.e("FCM", "Token error: ${e.message}")
+                val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
+
+                lifecycleScope.launch {
+                    try {
+                        apiService.setFcmToken(token)
+                        sharedPrefs.edit().putBoolean("fcm_sent", true).apply()
+
+                    } catch (e: Exception) {
+                        Log.e("FCM", "Token error: ${e.message}")
+                    }
                 }
             }
         }
 
-
         binding = MainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-//        binding.trainingsButton.setOnClickListener{
-//            val intent = Intent(this@MainActivity, WorkoutListActivity::class.java)
-//            startActivity(intent)
-//        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         FirebaseMessaging.getInstance().subscribeToTopic("all")
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Log.d("FCM", "Subskrypcja do tematu 'all' OK")
+                    Log.d("FCM", "Subskrypcja do tematu 'all'")
                 } else {
                     Log.e("FCM", "Błąd subskrypcji", task.exception)
                 }

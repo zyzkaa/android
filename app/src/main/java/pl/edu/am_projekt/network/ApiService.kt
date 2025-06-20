@@ -15,6 +15,7 @@ import pl.edu.am_projekt.model.ServerResponse
 import pl.edu.am_projekt.model.UpdatedNutrientsReturn
 import pl.edu.am_projekt.model.workout.request.RemindersRequest
 import pl.edu.am_projekt.model.workout.request.WorkoutRequest
+import pl.edu.am_projekt.model.workout.response.BasicExerciseResponse
 import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.model.workout.response.WorkoutDetailsResponse
 import pl.edu.am_projekt.model.workout.response.WorkoutShortResponse
@@ -63,7 +64,7 @@ interface ApiService {
     suspend fun getExercisesByMuscle(@Path("id") id: Int) : List<StrengthExerciseInfoResponse>
 
     @GET("exercise/cardio/search/{name}")
-    suspend fun getCardioExercisesBySearch(@Path("name") name: String) : List<BasicDictResponse>
+    suspend fun getCardioExercisesBySearch(@Path("name") name: String) : List<BasicExerciseResponse>
 
     @GET("exercise/strength/search/{name}")
     suspend fun getStrExercisesBySearch(@Path("name") name: String) : List<StrengthExerciseInfoResponse>
@@ -72,7 +73,7 @@ interface ApiService {
     suspend fun getStrExercisesByMuscleAndSearch(@Path("name") name: String, @Path("id") id: Int) : List<StrengthExerciseInfoResponse>
 
     @GET("exercise/cardio")
-    suspend fun getAllCardioExercises() : List<BasicDictResponse>
+    suspend fun getAllCardioExercises() : List<BasicExerciseResponse>
 
     @GET("exercise/strength/latest")
     suspend fun getRecentStrengthExercises() : List<StrengthExerciseInfoResponse>

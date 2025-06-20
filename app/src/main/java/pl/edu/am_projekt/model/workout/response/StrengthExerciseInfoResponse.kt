@@ -8,5 +8,6 @@ import kotlinx.parcelize.Parcelize
 data class StrengthExerciseInfoResponse(
     var muscles: List<BasicDictResponse>,
     var id: Int,
-    var name: String
+    var namePl: String,
+    var nameEn: String
 ) : Parcelable

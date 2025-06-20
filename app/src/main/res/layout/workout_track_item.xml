@@ -64,8 +64,10 @@
         android:layout_height="wrap_content"
         android:text="@string/add_button"
         app:layout_constraintTop_toBottomOf="@+id/inputRecycler"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="?attr/colorSecondary"
         android:layout_marginTop="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

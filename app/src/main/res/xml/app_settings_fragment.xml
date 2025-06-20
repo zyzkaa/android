@@ -5,32 +5,38 @@
         android:title="@string/pref_title_theme"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
-        android:defaultValue="system" />
+        android:defaultValue="system"
+        android:titleTextAppearance="@style/PrefTitleText"/>
 
     <ListPreference
         android:key="pref_language"
         android:title="@string/pref_title_language"
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
-        android:defaultValue="pl" />
+        android:defaultValue="pl"
+        android:titleTextAppearance="@style/PrefTitleText"/>
 
-    <PreferenceCategory android:title="@string/pref_category_schedule">
+    <PreferenceCategory
+        android:title="@string/pref_category_schedule"
+        android:titleTextAppearance="@style/PrefCategoryTitleText" >
 
         <pl.edu.am_projekt.TimePickerPreference
             android:key="pref_schedule_time"
             android:title="@string/pref_title_time"
-            android:defaultValue="08:00" />
+            android:defaultValue="08:00"
+            android:titleTextAppearance="@style/PrefTitleText" />
 
         <MultiSelectListPreference
             android:key="pref_schedule_days"
             android:title="@string/pref_title_days"
             android:entries="@array/pref_days_entries"
             android:entryValues="@array/pref_days_values"
-            android:defaultValue="@array/pref_days_default" />
+            android:defaultValue="@array/pref_days_default"
+            android:titleTextAppearance="@style/PrefTitleText" />
     </PreferenceCategory>
 
     <Preference
         android:key="logout_button"
         android:title="@string/logout"
-        android:summary="@string/logout_summary" />
+        android:titleTextAppearance="@style/PrefTitleText" />
 </PreferenceScreen>
