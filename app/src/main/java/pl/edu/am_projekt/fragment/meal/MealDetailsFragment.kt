@@ -2,12 +2,16 @@ package pl.edu.am_projekt.fragment.meal
 
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
+import android.content.Context
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -16,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.activity.MealActivity
 import pl.edu.am_projekt.adapter.IngredientAdapter
 import pl.edu.am_projekt.adapter.NutrientAdapter
 import pl.edu.am_projekt.databinding.ActivityMealDetailsBinding
@@ -64,6 +69,27 @@ class MealDetailsFragment : Fragment() {
         val ingredients = arguments?.getParcelableArrayList<Ingredient>("ingredients") ?: arrayListOf()
         val mealImageUrl = "${RetrofitClient.BASE_URL}image/get_by_mealId/$mealId"
 
+        binding.root.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val focused = activity?.currentFocus
+                if (focused != null) {
+                    val outRect = Rect()
+                    focused.getGlobalVisibleRect(outRect)
+                    if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                        focused.clearFocus()
+                        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+                        imm?.hideSoftInputFromWindow(focused.windowToken, 0)
+
+                        // Dodaj performClick dla zgodności
+                        v.performClick()
+                    }
+                }
+            }
+            false
+        }
+
+
+
         // Set up adapters
         binding.ingredientsRecycler.layoutManager = LinearLayoutManager(requireContext())
         val ingredientAdapter = IngredientAdapter(
@@ -77,11 +103,20 @@ class MealDetailsFragment : Fragment() {
         binding.ingredientsRecycler.layoutManager = LinearLayoutManager(requireContext())
         binding.ingredientsRecycler.adapter = ingredientAdapter
 
+        parentFragmentManager.setFragmentResultListener("product_selected", this) { _, bundle ->
+            val productId = bundle.getInt("selectedProductId")
+            val productName = bundle.getString("selectedProductName") ?: return@setFragmentResultListener
+
+            // Dodajemy nowy Ingredient z domyślną ilością np. 100g
+            val newIngredient = Ingredient(productId, productName, 0)
+            ingredientAdapter.addIngredient(newIngredient)
+        }
+
         binding.editMealButton.setOnClickListener {
             val isEditing = ingredientAdapter.getEditModeStatus()
 
             if (!isEditing) {
-
+                binding.addIngredientButton.visibility = View.VISIBLE
                 // Clone original meal data for comparison
                 val ingredients = ingredientAdapter.getIngredients().map {
                     MealIngredientDto(it.productID, it.quantity)
@@ -106,6 +141,7 @@ class MealDetailsFragment : Fragment() {
                 startWiggleAnimation(binding.editMealButton)
 
             } else {
+                binding.addIngredientButton.visibility = View.GONE
                 binding.mealNameTextView.isEnabled = false
                 // Editing -> user clicked again
                 val newName = binding.mealNameTextView.text.toString().trim()
@@ -157,6 +193,22 @@ class MealDetailsFragment : Fragment() {
             }
         }
 
+        binding.addIngredientButton.setOnClickListener {
+            val fragment = AddProductFragment()
+
+            parentFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.enter_from_right,
+                    R.anim.exit_to_left,
+                    R.anim.enter_from_left,
+                    R.anim.exit_to_right
+                )
+                .add(R.id.fragmentContainer, fragment)
+                .hide(this)
+                .addToBackStack(null)
+                .commit()
+
+        }
 
 
 
@@ -305,6 +357,12 @@ class MealDetailsFragment : Fragment() {
             .setPositiveButton("Tak") { _, _ -> onConfirm() }
             .setNegativeButton("Nie", null)
             .show()
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as? MealActivity)?.showMealPlanFab(false)
+        (activity as? MealActivity)?.showListFab(false)
+
     }
 
 }

@@ -166,6 +166,19 @@
                 android:clipToPadding="false"
                 android:contentDescription="Składaniki"/>
 
+            <Button
+                android:id="@+id/addIngredientButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/add_button"
+                android:background="@drawable/dotted_border_button"
+                android:text="Dodaj składnik"
+                android:textAlignment="center"
+                android:visibility="gone" />
+
+
 
             <TextView
                 android:id="@+id/nutritionTitle"

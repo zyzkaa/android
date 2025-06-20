@@ -1,6 +1,7 @@
 package pl.edu.am_projekt.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
@@ -8,11 +9,13 @@ import com.bumptech.glide.Glide
 import pl.edu.am_projekt.R
 import pl.edu.am_projekt.databinding.ItemSelectedMealBinding
 import pl.edu.am_projekt.model.MealSummary
+import pl.edu.am_projekt.network.RetrofitClient
 
 class MealSummaryAdapter(
     private val meals: MutableList<MealSummary>,
     private val onClick: (MealSummary) -> Unit,
-    private val onRemove: (MealSummary) -> Unit
+    private val onRemove: (MealSummary) -> Unit = {},
+    private val showRemoveButton: Boolean = true
 ) : RecyclerView.Adapter<MealSummaryAdapter.MealViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
@@ -32,31 +35,36 @@ class MealSummaryAdapter(
         notifyDataSetChanged()
     }
 
-
     inner class MealViewHolder(private val binding: ItemSelectedMealBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(meal: MealSummary) {
             binding.mealName.text = meal.name
             binding.mealCalories.text = "${meal.calories} kcal"
 
+            val imageUrl = "${RetrofitClient.BASE_URL}image/get_by_mealId/${meal.id}"
             Glide.with(binding.mealImage.context)
-                .load(meal.imageUrl)
-                .placeholder(R.drawable.no_meal)
+                .load(imageUrl)
+                .placeholder(R.drawable.no_meal) // fallback
+                .error(R.drawable.no_meal)       // error
                 .into(binding.mealImage)
 
-            // Item click
             binding.root.setOnClickListener {
                 onClick(meal)
             }
 
-            // Remove button logic
-            binding.removeButton.setOnClickListener {
-                val pos = adapterPosition
-                if (pos != RecyclerView.NO_POSITION) {
-                    val removed = meals.removeAt(pos)
-                    notifyItemRemoved(pos)
-                    onRemove(removed)
+            if (showRemoveButton) {
+                binding.removeButton.visibility = View.VISIBLE
+                binding.removeButton.setOnClickListener {
+                    val pos = adapterPosition
+                    if (pos != RecyclerView.NO_POSITION) {
+                        val removed = meals.removeAt(pos)
+                        notifyItemRemoved(pos)
+                        onRemove(removed)
+                    }
                 }
+            } else {
+                binding.removeButton.visibility = View.GONE
             }
         }
     }
 }
+

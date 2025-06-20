@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.activity.MealActivity
 import pl.edu.am_projekt.adapter.MealCardAdapter
 import pl.edu.am_projekt.databinding.MealsStartLayoutBinding
 import pl.edu.am_projekt.model.parcelable.Ingredient
@@ -127,5 +128,11 @@ class BrowseMealsFragment : Fragment() {
     } catch (e: Exception) {
         Log.e("MealsDebug", "Error: ${e.localizedMessage}")
         emptyList()
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as? MealActivity)?.showMealPlanFab(true)
+        (activity as? MealActivity)?.showListFab(true)
+
     }
 }

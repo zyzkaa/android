@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.launch
+import pl.edu.am_projekt.activity.MealActivity
 import pl.edu.am_projekt.adapter.MealSummaryAdapter
 import pl.edu.am_projekt.databinding.FragmentMealPlanBinding
 import pl.edu.am_projekt.manager.SelectedMealsManager
@@ -108,6 +109,12 @@ class MealPlanFragment : Fragment() {
 
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MealActivity)?.showMealPlanFab(false)
+        (activity as? MealActivity)?.showListFab(false)
     }
 
     fun cleanUpAfterAdding(){

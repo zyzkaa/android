@@ -6,7 +6,9 @@ import okhttp3.MultipartBody
 import pl.edu.am_projekt.model.BasicDictResponse
 import pl.edu.am_projekt.model.CreateMealDto
 import pl.edu.am_projekt.model.CreateMealPlanDto
+import pl.edu.am_projekt.model.CreateProductDto
 import pl.edu.am_projekt.model.ImageUploadResponse
+import pl.edu.am_projekt.model.MealPlanDto
 import pl.edu.am_projekt.model.NutrientsInput
 import pl.edu.am_projekt.model.RegisterRequest
 import pl.edu.am_projekt.model.ServerResponse
@@ -16,6 +18,8 @@ import pl.edu.am_projekt.model.workout.request.WorkoutRequest
 import pl.edu.am_projekt.model.workout.response.StrengthExerciseInfoResponse
 import pl.edu.am_projekt.model.workout.response.WorkoutDetailsResponse
 import pl.edu.am_projekt.model.workout.response.WorkoutShortResponse
+import pl.edu.am_projekt.model.OpenFoodProductDto
+import pl.edu.am_projekt.model.parcelable.Product
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -100,6 +104,25 @@ interface ApiService {
 
     @POST("meal_plan/add")
     suspend fun addMealPlan(@Body mealPlan: CreateMealPlanDto) : ServerResponse
+
+    @GET("meal/get_by_id/{id}")
+    suspend fun getMealById(@Path("id") id: Int): MealResponseDAO
+
+    @GET("meal/barcode/{barcode}")
+    suspend fun getProductNutrition(@Path("barcode") barcode: String): Response<OpenFoodProductDto>
+
+    @GET("meal/top_used_products")
+    suspend fun getTopProducts() : Response<List<Product>>
+
+    @POST("meal/product/add")
+    suspend fun addProduct(@Body dto: CreateProductDto): Response<Product>
+
+    @GET("meal/products/search")
+    suspend fun searchProducts(@Query("query") query: String): Response<List<Product>>
+
+    @GET("meal_plan/plan_for_date")
+    suspend fun getMealPlansForDate(@Query("date") date: String): Response<List<MealPlanDto>>
+
 
 
     @Multipart
