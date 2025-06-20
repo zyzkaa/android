@@ -1,5 +1,6 @@
 package pl.edu.am_projekt.fragment.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +20,7 @@ import pl.edu.am_projekt.activity.MainActivity
 import pl.edu.am_projekt.model.workout.request.RemindersRequest
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
+import androidx.core.content.edit
 
 class AppSettingsFragment : PreferenceFragmentCompat()  {
     private val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
@@ -55,6 +57,13 @@ class AppSettingsFragment : PreferenceFragmentCompat()  {
         logoutPref?.setOnPreferenceClickListener {
             lifecycleScope.launch {
                 apiService.logout()
+
+                val sharedPrefs = requireContext()
+                    .getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                sharedPrefs.edit {
+                    putBoolean("fcm_sent", false)
+                }
+
                 val intent = Intent(requireContext(), AuthActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()

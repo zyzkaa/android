@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import pl.edu.am_projekt.activity.MainActivity
 import pl.edu.am_projekt.databinding.RegisterFragmentBinding
+import pl.edu.am_projekt.model.LoginRequest
 import pl.edu.am_projekt.model.RegisterRequest
 import pl.edu.am_projekt.network.ApiService
 import pl.edu.am_projekt.network.RetrofitClient
@@ -38,7 +39,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.confirmButton.setOnClickListener {
-            val email = binding.emailInput.editText?.text.toString().trim()
+            val username = binding.emailInput.editText?.text.toString().trim()
             val password = binding.passwordInput.editText?.text.toString().trim()
             val weight = binding.weightInput.editText?.text.toString().toIntOrNull() ?: 0
             val height = binding.heightInput.editText?.text.toString().toIntOrNull() ?: 0
@@ -46,7 +47,7 @@ class RegisterFragment : Fragment() {
             val calories = binding.deficitInput.editText?.text.toString().toIntOrNull() ?: 0
 
             val registerRequest = RegisterRequest(
-                username = email,
+                username = username,
                 password = password,
                 weight = weight,
                 height = height,
@@ -56,6 +57,10 @@ class RegisterFragment : Fragment() {
 
             lifecycleScope.launch {
                 apiService.registerUser(registerRequest)
+
+                val loginRequest = LoginRequest(username, password)
+                apiService.login(loginRequest)
+
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()

@@ -7,6 +7,7 @@ import pl.edu.am_projekt.model.BasicDictResponse
 import pl.edu.am_projekt.model.CreateMealDto
 import pl.edu.am_projekt.model.CreateMealPlanDto
 import pl.edu.am_projekt.model.ImageUploadResponse
+import pl.edu.am_projekt.model.LoginRequest
 import pl.edu.am_projekt.model.NutrientsInput
 import pl.edu.am_projekt.model.RegisterRequest
 import pl.edu.am_projekt.model.ServerResponse
@@ -31,6 +32,9 @@ import retrofit2.http.Query
 interface ApiService {
     @POST("user/temp_login")
     fun tempLogin(): Call<Void>
+
+    @POST("user/login")
+    suspend fun login(@Body userLoginRequest : LoginRequest)
 
     @POST("user/logout")
     suspend fun logout()
