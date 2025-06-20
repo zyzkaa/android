@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import pl.edu.am_projekt.R
+import pl.edu.am_projekt.activity.MainActivity
+import pl.edu.am_projekt.activity.MealActivity
 import pl.edu.am_projekt.adapter.MealSummaryAdapter
 import pl.edu.am_projekt.databinding.FragmentSelectedMealsBottomsheetBinding
 import pl.edu.am_projekt.fragment.meal.MealPlanFragment

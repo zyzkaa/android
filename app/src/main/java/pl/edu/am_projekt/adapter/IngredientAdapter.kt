@@ -1,6 +1,6 @@
+
 package pl.edu.am_projekt.adapter
 
-import android.annotation.SuppressLint
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -20,19 +20,25 @@ class IngredientAdapter(
     private val onQuantityChanged: (Ingredient, Int) -> Unit
 ) : RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setEditMode(enabled: Boolean) {
         isEditMode = enabled
         notifyDataSetChanged()
     }
-    fun getEditModeStatus(): Boolean {
-        return isEditMode;
+
+    fun getEditModeStatus(): Boolean = isEditMode
+
+    fun addIngredient(ingredient: Ingredient) {
+        ingredients.add(ingredient)
+        notifyItemInserted(ingredients.size - 1)
     }
+
+    fun getIngredients(): MutableList<Ingredient> = ingredients
 
     inner class IngredientViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameText: TextView = view.findViewById(R.id.ingredientName)
         val quantityText: EditText = view.findViewById(R.id.quantity)
         val deleteButton: ImageButton = view.findViewById(R.id.removeButton)
+        var currentWatcher: TextWatcher? = null
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
@@ -46,54 +52,56 @@ class IngredientAdapter(
 
         holder.nameText.text = item.name
         holder.quantityText.setText(item.quantity.toString())
-
         holder.quantityText.isEnabled = isEditMode
         holder.deleteButton.visibility = if (isEditMode) View.VISIBLE else View.GONE
 
         holder.deleteButton.setOnClickListener {
-            val position = holder.adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                val deleted = ingredients[position]
-                onDelete(deleted)
-                ingredients.removeAt(position)
-                notifyItemRemoved(position)
+            val pos = holder.adapterPosition
+            if (pos != RecyclerView.NO_POSITION) {
+                val removed = ingredients[pos]
+                onDelete(removed)
+                ingredients.removeAt(pos)
+                notifyItemRemoved(pos)
             }
         }
 
+        // Usuń stary watcher
+        holder.currentWatcher?.let {
+            holder.quantityText.removeTextChangedListener(it)
+        }
 
-        holder.quantityText.addTextChangedListener(object : TextWatcher {
+        // Utwórz nowy watcher
+        val watcher = object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                    val newQtyString = s?.toString()?.trim() ?: return
-                    val newQty = newQtyString.toIntOrNull() ?: 0
-                    onQuantityChanged(item, newQty.toInt())
+                val newQty = s?.toString()?.toIntOrNull() ?: 0
+                item.quantity = newQty
+                onQuantityChanged(item, newQty)
+            }
 
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        }
+
+        holder.quantityText.addTextChangedListener(watcher)
+        holder.currentWatcher = watcher
+
+        // Walidacja po utracie focusu
+        holder.quantityText.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val value = holder.quantityText.text.toString().toIntOrNull() ?: 0
+                if (value <= 0) {
+                    holder.quantityText.error = "Wprowadź poprawną ilość (> 0)"
+                    holder.quantityText.requestFocus()
                 }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-
-    holder.quantityText.setOnFocusChangeListener { v, hasFocus ->
-        if (!hasFocus) {
-            val text = holder.quantityText.text.toString().trim()
-            val value = text.toInt()
-
-            if (value <= 0) {
-                holder.quantityText.error = "Wprowadź poprawną ilość (> 0)"
-                holder.quantityText.requestFocus()
             }
         }
-    }
 
-
-
-
-
-    }
-    fun getIngredients() : MutableList<Ingredient>{
-        return ingredients
+        // Auto-focus na ostatnim dodanym
+        if (position == ingredients.size - 1 && isEditMode) {
+            holder.quantityText.requestFocus()
+        }
     }
 
     override fun getItemCount(): Int = ingredients.size
 }
-
 
